@@ -222,7 +222,12 @@ export function drawFrame(ctx: CanvasRenderingContext2D, state: EditorState) {
     );
   };
 
-  if (f.style === "thin") {
+  if (f.style === "banner") {
+    drawBannerPath(ctx, m);
+    ctx.lineWidth = t;
+    ctx.lineJoin = "round";
+    ctx.stroke();
+  } else if (f.style === "thin") {
     strokeRect(0, t);
   } else if (f.style === "classic") {
     strokeRect(0, t);
@@ -246,6 +251,72 @@ export function drawFrame(ctx: CanvasRenderingContext2D, state: EditorState) {
     }
   }
   ctx.restore();
+}
+
+/**
+ * Organic "luggage-tag" banner outline: rounded top shoulders, near-straight
+ * sides, and a softly tapered rounded base — matching the reference scroll.
+ */
+function drawBannerPath(ctx: CanvasRenderingContext2D, margin: number) {
+  const size = CANVAS_SIZE;
+  const left = margin;
+  const right = size - margin;
+  const top = margin;
+  const bottom = size - margin;
+  const cx = size / 2;
+  const w = right - left;
+  const h = bottom - top;
+
+  ctx.beginPath();
+  ctx.moveTo(cx, top);
+  // right shoulder
+  ctx.bezierCurveTo(
+    right - w * 0.04,
+    top,
+    right,
+    top + h * 0.1,
+    right,
+    top + h * 0.2
+  );
+  // right side (slightly convex)
+  ctx.bezierCurveTo(
+    right + w * 0.015,
+    top + h * 0.38,
+    right + w * 0.015,
+    top + h * 0.55,
+    right - w * 0.01,
+    top + h * 0.66
+  );
+  // taper to bottom centre
+  ctx.bezierCurveTo(
+    right - w * 0.06,
+    bottom - h * 0.12,
+    cx + w * 0.2,
+    bottom,
+    cx,
+    bottom
+  );
+  // mirror: bottom centre to left
+  ctx.bezierCurveTo(
+    cx - w * 0.2,
+    bottom,
+    left + w * 0.06,
+    bottom - h * 0.12,
+    left + w * 0.01,
+    top + h * 0.66
+  );
+  // left side
+  ctx.bezierCurveTo(
+    left - w * 0.015,
+    top + h * 0.55,
+    left - w * 0.015,
+    top + h * 0.38,
+    left,
+    top + h * 0.2
+  );
+  // left shoulder
+  ctx.bezierCurveTo(left, top + h * 0.1, left + w * 0.04, top, cx, top);
+  ctx.closePath();
 }
 
 export interface RenderOptions {

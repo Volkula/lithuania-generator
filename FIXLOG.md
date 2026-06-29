@@ -34,6 +34,7 @@ emit` when running `tsc -b`.
 ## 2026-06-29 — Phase 2 (dictionary, presets, snap, crop, CI)
 
 ### 4. ESLint install blocked by peer dependency conflicts
+
 - **Symptom:** `npm i -D eslint@^9 …` failed with `ERESOLVE`. `@eslint/js`
   floated to `10.x` (peer wants eslint ^10) and `eslint-plugin-react-hooks@4`
   does not support eslint 9.
@@ -42,14 +43,28 @@ emit` when running `tsc -b`.
   then resolved cleanly.
 
 ### 5. Lint failures: `prefer-const`
+
 - **Symptom:** ESLint reported `prefer-const` on `let` bindings in
   `applyCrop` (CanvasStage) and the BMP encoder.
 - **Fix:** `eslint . --fix`; values were never reassigned so `const` is correct.
 
 ### 6. Prettier check failed in CI sequence
+
 - **Symptom:** `format:check` flagged `index.html` and the deploy workflow.
 - **Fix:** Ran `prettier --write .` across the repo and added a
   `.prettierignore` (dist, node_modules, package-lock.json).
+
+## 2026-06-29 — Phase 3 (banner, emblems, Cyrillic)
+
+### 7. Cyrillic litany text rendered as boxes / fell back to a default font
+- **Symptom:** The reference uses Russian (Cyrillic) gothic text, but the bundled
+  display fonts (Cinzel, UnifrakturMaguntia, …) have no Cyrillic glyphs, so the
+  text either fell back to a serif or showed tofu.
+- **Cause:** Latin-only webfonts.
+- **Fix:** Added Cyrillic-capable Google fonts (Ruslan Display, Yeseva One,
+  Forum, PT Serif, Old Standard TT) and a **custom font upload** (`lib/fonts.ts`
+  via the FontFace API) so the exact gothic Cyrillic face from the source can be
+  used. After registering a font we force a canvas repaint so it takes effect.
 
 ---
 

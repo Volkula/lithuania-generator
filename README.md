@@ -31,7 +31,12 @@ in several formats. Runs entirely in the browser — no server, no backend.
 6. **Undo / redo** — full history with `Ctrl+Z` / `Ctrl+Y` (and `Ctrl+Shift+Z`).
    `Delete` removes the selected layer.
 7. **Runs in the browser, deployed via GitHub Actions** to GitHub Pages.
-8. **Editor conveniences** — drag layers with **snap/alignment guides**
+8. **Imperial banner kit** — an organic **banner/scroll frame** shape, built-in
+   **emblems** (skull-and-laurel, winged sword), and a one-click **“Assemble
+   Imperial Banner”** that arranges emblems + Cyrillic text + scroll frame like
+   the reference. Cyrillic-capable fonts are bundled, and you can **upload your
+   own font** (e.g. a Cyrillic Fraktur) via the Text tab.
+9. **Editor conveniences** — drag layers with **snap/alignment guides**
    (centre & edges), **visual mouse cropping** for image layers, one-click
    **layout presets**, **Save / Load project** as JSON, and silent autosave so a
    page reload keeps your work. A wide selection of thematic **Google fonts**

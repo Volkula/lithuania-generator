@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150" width="240" height="150">
+  <g fill="#000000">
+    <!-- laurel wreath, opening upward around the skull -->
+    <g id="branch">
+      <path d="M120 132 C96 130 70 118 52 96 C40 82 33 64 31 46" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+      <g>
+        <ellipse cx="108" cy="129" rx="11" ry="5" transform="rotate(-18 108 129)"/>
+        <ellipse cx="90" cy="121" rx="11" ry="5" transform="rotate(-30 90 121)"/>
+        <ellipse cx="74" cy="109" rx="11" ry="5" transform="rotate(-44 74 109)"/>
+        <ellipse cx="61" cy="93" rx="11" ry="5" transform="rotate(-58 61 93)"/>
+        <ellipse cx="50" cy="74" rx="10" ry="5" transform="rotate(-70 50 74)"/>
+        <ellipse cx="42" cy="55" rx="9" ry="4" transform="rotate(-80 42 55)"/>
+      </g>
+    </g>
+    <use href="#branch" transform="translate(240 0) scale(-1 1)"/>
+
+    <!-- skull -->
+    <path d="M120 26
+             C100 26 86 41 86 62
+             C86 74 91 83 98 90
+             L98 101
+             C98 105 101 108 105 108
+             L108 108 L108 100 L112 100 L112 108
+             L118 108 L118 100 L122 100 L122 108
+             L128 108 L128 100 L132 100 L132 108
+             L135 108
+             C139 108 142 105 142 101
+             L142 90
+             C149 83 154 74 154 62
+             C154 41 140 26 120 26 Z"/>
+    <!-- eye sockets (cut as white) -->
+    <ellipse cx="108" cy="62" rx="9" ry="11" fill="#ffffff"/>
+    <ellipse cx="132" cy="62" rx="9" ry="11" fill="#ffffff"/>
+    <!-- nasal cavity -->
+    <path d="M120 70 L115 84 L125 84 Z" fill="#ffffff"/>
+  </g>
+</svg>

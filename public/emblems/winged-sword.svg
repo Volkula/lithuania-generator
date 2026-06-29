@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 130" width="240" height="130">
+  <g fill="#000000">
+    <!-- wings spreading from the hilt -->
+    <g id="wing">
+      <path d="M120 40
+               C104 34 86 30 64 26
+               C70 31 78 33 84 36
+               C72 35 56 33 38 30
+               C46 36 58 39 66 42
+               C54 42 40 41 26 39
+               C36 46 52 50 64 52
+               C84 55 104 52 120 48 Z"/>
+    </g>
+    <use href="#wing" transform="translate(240 0) scale(-1 1)"/>
+
+    <!-- pommel -->
+    <circle cx="120" cy="30" r="7"/>
+    <!-- grip -->
+    <rect x="116" y="36" width="8" height="14"/>
+    <!-- crossguard -->
+    <rect x="96" y="50" width="48" height="9" rx="3"/>
+    <!-- blade pointing downward -->
+    <path d="M111 59 L129 59 L124 110 L120 120 L116 110 Z"/>
+  </g>
+</svg>

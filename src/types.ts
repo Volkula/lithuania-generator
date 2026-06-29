@@ -63,7 +63,7 @@ export interface BackgroundState {
 export interface FrameState {
   enabled: boolean;
   exportWithFrame: boolean;
-  style: "classic" | "double" | "thin" | "ornate";
+  style: "classic" | "double" | "thin" | "ornate" | "banner";
   thickness: number;
   margin: number;
   color: MonoColor;

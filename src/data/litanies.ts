@@ -193,6 +193,20 @@ const RAW_LITANIES: Litany[] = [
       "For corruption hides behind the kindest of faces.",
   },
   {
+    id: "slavte-imperatora",
+    title: "Славьте Императора",
+    category: "Молитвы (RU)",
+    source: "Имперский культ",
+    text:
+      "Славьте Императора, ибо он вечный!\n" +
+      "Славьте Императора, ибо он пастырь наш!\n" +
+      "Славьте Императора, ибо Он тот,\n" +
+      "кто ведёт нас путём истины!\n" +
+      "Да защитит Он нас в час тёмный!\n" +
+      "Да упокоит наши души в бою праведном!\n" +
+      "Да уничтожим врагов во славу Его!",
+  },
+  {
     id: "litany-of-devotion",
     title: "Litany of Devotion",
     category: "Battle Litanies",

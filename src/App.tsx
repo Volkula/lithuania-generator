@@ -34,9 +34,11 @@ import {
   serializeProject,
 } from "./lib/project";
 import { PRESETS } from "./lib/presets";
+import { registerFontFile } from "./lib/fonts";
 
 type Tab = "library" | "text" | "image" | "canvas" | "export";
 
+// Latin display fonts first, then Cyrillic-capable faces (для русского текста).
 const FONTS = [
   "Cinzel, serif",
   "'Cinzel Decorative', serif",
@@ -47,10 +49,20 @@ const FONTS = [
   "'Pirata One', cursive",
   "'Marcellus SC', serif",
   "'Metamorphous', serif",
+  "'Ruslan Display', cursive",
+  "'Yeseva One', serif",
+  "'Forum', serif",
+  "'PT Serif', serif",
+  "'Old Standard TT', serif",
   "Georgia, serif",
   "'Times New Roman', serif",
   "Arial, sans-serif",
   "'Courier New', monospace",
+];
+
+const EMBLEMS = [
+  { name: "Skull & Laurel", file: "emblems/skull-laurel.svg" },
+  { name: "Winged Sword", file: "emblems/winged-sword.svg" },
 ];
 
 let counter = 0;
@@ -88,6 +100,8 @@ export default function App() {
   const [exportFormat, setExportFormat] = useState<ExportFormat>("png");
   const [status, setStatus] = useState<string>("");
   const [cropMode, setCropMode] = useState(false);
+  const [customFonts, setCustomFonts] = useState<string[]>([]);
+  const fonts = useMemo(() => [...FONTS, ...customFonts], [customFonts]);
 
   // Custom litany dictionary, persisted to localStorage.
   const [custom, setCustom] = useState<Litany[]>(() => loadCustom());
@@ -204,20 +218,28 @@ export default function App() {
   );
 
   const addImageFromSrc = useCallback(
-    async (src: string, name: string) => {
+    async (
+      src: string,
+      name: string,
+      opts?: { targetWidth?: number; centerX?: number; centerY?: number }
+    ) => {
       try {
         const { w, h } = await loadDimensions(src);
-        const maxDim = 520;
-        const scale = Math.min(1, maxDim / Math.max(w, h));
+        const maxDim = opts?.targetWidth ?? 520;
+        const scale = opts?.targetWidth
+          ? maxDim / w
+          : Math.min(1, maxDim / Math.max(w, h));
         const width = Math.round(w * scale);
         const height = Math.round(h * scale);
+        const centerX = opts?.centerX ?? CANVAS_SIZE / 2;
+        const centerY = opts?.centerY ?? CANVAS_SIZE / 2;
         const layer: ImageLayer = {
           id: uid("img"),
           type: "image",
           name,
           src,
-          x: Math.round((CANVAS_SIZE - width) / 2),
-          y: Math.round((CANVAS_SIZE - height) / 2),
+          x: Math.round(centerX - width / 2),
+          y: Math.round(centerY - height / 2),
           width,
           height,
           naturalWidth: w,
@@ -418,6 +440,68 @@ export default function App() {
     [reset]
   );
 
+  const handleFontUpload = useCallback(
+    async (file: File) => {
+      try {
+        const { value } = await registerFontFile(file);
+        setCustomFonts((c) => (c.includes(value) ? c : [...c, value]));
+        // Trigger a repaint now that the face is available.
+        set((p) => ({ ...p }), "replace");
+        setStatus(
+          `Font "${value}" ready. Pick it in a text layer's Font list.`
+        );
+      } catch (e) {
+        setStatus(`Font load failed: ${(e as Error).message}`);
+      }
+    },
+    [set]
+  );
+
+  const emblemUrl = (file: string) => `${import.meta.env.BASE_URL}${file}`;
+
+  const buildImperialBanner = useCallback(async () => {
+    set((p) => ({
+      ...p,
+      canvasBg: "#ffffff",
+      bw: { ...p.bw, enabled: true, invert: false },
+      frame: {
+        ...p.frame,
+        enabled: true,
+        exportWithFrame: true,
+        style: "banner",
+        color: "#000000",
+        thickness: 8,
+        margin: 60,
+      },
+      layers: p.layers.map((l) =>
+        l.type === "text"
+          ? {
+              ...l,
+              fontFamily: "'Ruslan Display', cursive",
+              align: "center",
+              color: "#000000",
+              x: CANVAS_SIZE / 2,
+              y: 360,
+              maxWidth: 560,
+              fontSize: 30,
+              lineHeight: 1.3,
+            }
+          : l
+      ),
+    }));
+    await addImageFromSrc(emblemUrl(EMBLEMS[0].file), "Skull & Laurel", {
+      targetWidth: 300,
+      centerX: CANVAS_SIZE / 2,
+      centerY: 210,
+    });
+    await addImageFromSrc(emblemUrl(EMBLEMS[1].file), "Winged Sword", {
+      targetWidth: 300,
+      centerX: CANVAS_SIZE / 2,
+      centerY: 820,
+    });
+    setStatus("Imperial banner assembled. Tweak text & emblems as needed.");
+  }, [addImageFromSrc, set]);
+
   async function handleFileImport(file: File) {
     try {
       const { text } = await importFile(file);
@@ -605,6 +689,20 @@ export default function App() {
                     }}
                   />
                 </Field>
+                <Field
+                  label="Upload a font (.ttf/.otf/.woff) — e.g. Cyrillic gothic"
+                  hint="Registered for this session; then choose it in a text layer's Font list."
+                >
+                  <input
+                    type="file"
+                    accept=".ttf,.otf,.woff,.woff2,font/*"
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) handleFontUpload(f);
+                      e.target.value = "";
+                    }}
+                  />
+                </Field>
                 <p className="muted">
                   Select a text layer on the canvas to edit its content and
                   style in the right panel.
@@ -729,6 +827,27 @@ export default function App() {
                     Use URL above as background
                   </button>
                 </Field>
+                <hr />
+                <h4 className="subhead">Imperial decorations</h4>
+                <div className="preset-grid">
+                  {EMBLEMS.map((em) => (
+                    <button
+                      key={em.file}
+                      onClick={() =>
+                        addImageFromSrc(emblemUrl(em.file), em.name)
+                      }
+                    >
+                      + {em.name}
+                    </button>
+                  ))}
+                  <button className="primary" onClick={buildImperialBanner}>
+                    ⚜ Assemble Imperial Banner
+                  </button>
+                </div>
+                <p className="muted">
+                  «Assemble Imperial Banner» sets the scroll frame, a Cyrillic
+                  font on your text, and adds both emblems — like the reference.
+                </p>
               </Section>
             )}
 
@@ -860,6 +979,7 @@ export default function App() {
               {selected.type === "text" ? (
                 <TextProperties
                   layer={selected}
+                  fonts={fonts}
                   update={(patch, mode) => updateText(selected.id, patch, mode)}
                 />
               ) : (
@@ -1065,6 +1185,7 @@ function CanvasControls({
             <option value="classic">Classic</option>
             <option value="double">Double</option>
             <option value="ornate">Ornate (studs)</option>
+            <option value="banner">Banner / scroll</option>
           </select>
         </Field>
         <Field label="Thickness">
@@ -1122,9 +1243,11 @@ function CanvasControls({
 
 function TextProperties({
   layer,
+  fonts,
   update,
 }: {
   layer: TextLayer;
+  fonts: string[];
   update: (patch: Partial<TextLayer>, mode?: "commit" | "replace") => void;
 }) {
   return (
@@ -1144,7 +1267,7 @@ function TextProperties({
           value={layer.fontFamily}
           onChange={(e) => update({ fontFamily: e.target.value })}
         >
-          {FONTS.map((ff) => (
+          {fonts.map((ff) => (
             <option key={ff} value={ff}>
               {ff.split(",")[0].replace(/'/g, "")}
             </option>
