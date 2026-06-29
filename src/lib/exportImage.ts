@@ -1,4 +1,5 @@
-import { CANVAS_SIZE, EditorState } from "../types";
+import { EditorState } from "../types";
+import { getCanvasDimensions } from "./canvasSize";
 import { drawScene } from "./render";
 
 export type ExportFormat = "png" | "jpeg" | "webp" | "bmp1";
@@ -15,9 +16,10 @@ export const EXPORT_FORMATS: {
 ];
 
 export function renderToCanvas(state: EditorState): HTMLCanvasElement {
+  const { width, height } = getCanvasDimensions(state);
   const canvas = document.createElement("canvas");
-  canvas.width = CANVAS_SIZE;
-  canvas.height = CANVAS_SIZE;
+  canvas.width = width;
+  canvas.height = height;
   const ctx = canvas.getContext("2d", { willReadFrequently: true })!;
   drawScene(ctx, state, { includeFrame: state.frame.exportWithFrame });
   return canvas;

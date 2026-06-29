@@ -1,4 +1,5 @@
-import { CANVAS_SIZE, EditorState, TextLayer } from "../types";
+import { EditorState, TextLayer } from "../types";
+import { getCanvasWidth } from "./canvasSize";
 
 export interface LayoutPreset {
   id: string;
@@ -26,9 +27,9 @@ export const PRESETS: LayoutPreset[] = [
       ...styleTexts(s, {
         color: "#000000",
         align: "center",
-        x: CANVAS_SIZE / 2,
+        x: getCanvasWidth(s) / 2,
         fontFamily: "Cinzel, serif",
-        maxWidth: 820,
+        maxWidth: Math.round(getCanvasWidth(s) * 0.8),
         uppercase: false,
       }),
       canvasBg: "#ffffff",
@@ -48,9 +49,9 @@ export const PRESETS: LayoutPreset[] = [
       ...styleTexts(s, {
         color: "#ffffff",
         align: "center",
-        x: CANVAS_SIZE / 2,
+        x: getCanvasWidth(s) / 2,
         fontFamily: "Cinzel, serif",
-        maxWidth: 820,
+        maxWidth: Math.round(getCanvasWidth(s) * 0.8),
       }),
       canvasBg: "#000000",
       bw: { ...s.bw, enabled: true },
@@ -70,9 +71,9 @@ export const PRESETS: LayoutPreset[] = [
       ...styleTexts(s, {
         color: "#000000",
         align: "center",
-        x: CANVAS_SIZE / 2,
+        x: getCanvasWidth(s) / 2,
         fontFamily: "'IM Fell English', serif",
-        maxWidth: 760,
+        maxWidth: Math.round(getCanvasWidth(s) * 0.74),
         lineHeight: 1.4,
       }),
       canvasBg: "#ffffff",

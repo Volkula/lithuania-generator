@@ -43,11 +43,11 @@ in several formats. Runs entirely in the browser — no server, no backend.
    [seal-generator](https://github.com/Volkula/seal-generator) library and
    indexed by `src/data/iconLibrary.ts`.
 10. **Editor conveniences** — drag layers with **snap/alignment guides**
-   (centre & edges), **visual mouse cropping** for image layers, one-click
-   **layout presets**, **Save / Load project** as JSON, and silent autosave so a
-   page reload keeps your work. A wide selection of thematic **Google fonts**
-   (Cinzel, Cinzel Decorative, IM Fell English, UnifrakturMaguntia,
-   MedievalSharp, Pirata One, Marcellus SC, Metamorphous, …).
+    (centre & edges), **visual mouse cropping** for image layers, one-click
+    **layout presets**, **Save / Load project** as JSON, and silent autosave so a
+    page reload keeps your work. A wide selection of thematic **Google fonts**
+    (Cinzel, Cinzel Decorative, IM Fell English, UnifrakturMaguntia,
+    MedievalSharp, Pirata One, Marcellus SC, Metamorphous, …).
 
 ## Output
 

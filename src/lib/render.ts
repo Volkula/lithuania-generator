@@ -1,11 +1,11 @@
 import {
   BWState,
-  CANVAS_SIZE,
   EditorState,
   ImageLayer,
   Layer,
   TextLayer,
 } from "../types";
+import { getCanvasDimensions } from "./canvasSize";
 import { getImage } from "./images";
 
 export interface Box {
@@ -57,12 +57,16 @@ export function applyBW(ctx: CanvasRenderingContext2D, bw: BWState, box: Box) {
 }
 
 /** "cover" mapping of a source crop rectangle onto the whole canvas. */
-function coverRect(srcW: number, srcH: number): Box {
-  const size = CANVAS_SIZE;
-  const scale = Math.max(size / srcW, size / srcH);
+function coverRect(
+  canvasW: number,
+  canvasH: number,
+  srcW: number,
+  srcH: number
+): Box {
+  const scale = Math.max(canvasW / srcW, canvasH / srcH);
   const w = srcW * scale;
   const h = srcH * scale;
-  return { x: (size - w) / 2, y: (size - h) / 2, w, h };
+  return { x: (canvasW - w) / 2, y: (canvasH - h) / 2, w, h };
 }
 
 function drawBackground(ctx: CanvasRenderingContext2D, state: EditorState) {
@@ -70,11 +74,12 @@ function drawBackground(ctx: CanvasRenderingContext2D, state: EditorState) {
   if (!bg.src || !bg.visible) return;
   const img = getImage(bg.src);
   if (!img) return;
+  const { width: canvasW, height: canvasH } = getCanvasDimensions(state);
   const cx = bg.cropW > 0 ? bg.cropX : 0;
   const cy = bg.cropH > 0 ? bg.cropY : 0;
   const cw = bg.cropW > 0 ? bg.cropW : img.naturalWidth;
   const ch = bg.cropH > 0 ? bg.cropH : img.naturalHeight;
-  const dest = coverRect(cw, ch);
+  const dest = coverRect(canvasW, canvasH, cw, ch);
   ctx.drawImage(img, cx, cy, cw, ch, dest.x, dest.y, dest.w, dest.h);
 }
 
@@ -204,26 +209,27 @@ function drawTextLayer(ctx: CanvasRenderingContext2D, layer: TextLayer) {
 
 export function drawFrame(ctx: CanvasRenderingContext2D, state: EditorState) {
   const f = state.frame;
-  const size = CANVAS_SIZE;
+  const { width: canvasW, height: canvasH } = getCanvasDimensions(state);
   ctx.save();
   ctx.strokeStyle = f.color;
   ctx.fillStyle = f.color;
   const m = f.margin;
   const t = f.thickness;
-  const inner = size - 2 * m;
+  const innerW = canvasW - 2 * m;
+  const innerH = canvasH - 2 * m;
 
   const strokeRect = (off: number, thick: number) => {
     ctx.lineWidth = thick;
     ctx.strokeRect(
       m + off + thick / 2,
       m + off + thick / 2,
-      inner - 2 * off - thick,
-      inner - 2 * off - thick
+      innerW - 2 * off - thick,
+      innerH - 2 * off - thick
     );
   };
 
   if (f.style === "banner") {
-    drawBannerPath(ctx, m);
+    drawBannerPath(ctx, m, canvasW, canvasH);
     ctx.lineWidth = t;
     ctx.lineJoin = "round";
     ctx.stroke();
@@ -237,12 +243,11 @@ export function drawFrame(ctx: CanvasRenderingContext2D, state: EditorState) {
   } else if (f.style === "ornate") {
     strokeRect(0, t);
     strokeRect(t + 10, Math.max(2, t / 3));
-    // corner studs
     const corners = [
       [m, m],
-      [size - m, m],
-      [m, size - m],
-      [size - m, size - m],
+      [canvasW - m, m],
+      [m, canvasH - m],
+      [canvasW - m, canvasH - m],
     ];
     for (const [cx, cy] of corners) {
       ctx.beginPath();
@@ -257,13 +262,17 @@ export function drawFrame(ctx: CanvasRenderingContext2D, state: EditorState) {
  * Organic "luggage-tag" banner outline: rounded top shoulders, near-straight
  * sides, and a softly tapered rounded base — matching the reference scroll.
  */
-function drawBannerPath(ctx: CanvasRenderingContext2D, margin: number) {
-  const size = CANVAS_SIZE;
+function drawBannerPath(
+  ctx: CanvasRenderingContext2D,
+  margin: number,
+  canvasW: number,
+  canvasH: number
+) {
   const left = margin;
-  const right = size - margin;
+  const right = canvasW - margin;
   const top = margin;
-  const bottom = size - margin;
-  const cx = size / 2;
+  const bottom = canvasH - margin;
+  const cx = canvasW / 2;
   const w = right - left;
   const h = bottom - top;
 
@@ -321,6 +330,8 @@ function drawBannerPath(ctx: CanvasRenderingContext2D, margin: number) {
 
 export interface RenderOptions {
   includeFrame: boolean;
+  /** Leave the base canvas transparent (used for asset-pack layer exports). */
+  transparent?: boolean;
 }
 
 export function drawScene(
@@ -328,19 +339,20 @@ export function drawScene(
   state: EditorState,
   opts: RenderOptions
 ) {
-  const size = CANVAS_SIZE;
-  ctx.clearRect(0, 0, size, size);
-  ctx.fillStyle = state.canvasBg;
-  ctx.fillRect(0, 0, size, size);
+  const { width: canvasW, height: canvasH } = getCanvasDimensions(state);
+  ctx.clearRect(0, 0, canvasW, canvasH);
+  if (!opts.transparent) {
+    ctx.fillStyle = state.canvasBg;
+    ctx.fillRect(0, 0, canvasW, canvasH);
+  }
 
   drawBackground(ctx, state);
   for (const layer of state.layers) {
     if (layer.type === "image") drawImageLayer(ctx, layer);
   }
 
-  // Strict black & white pass over the raster content (bg + images).
   if (state.bw.enabled) {
-    applyBW(ctx, state.bw, { x: 0, y: 0, w: size, h: size });
+    applyBW(ctx, state.bw, { x: 0, y: 0, w: canvasW, h: canvasH });
   }
 
   // Text is already pure mono, drawn on top so it stays crisp.

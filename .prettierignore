@@ -3,3 +3,6 @@ node_modules
 package-lock.json
 public
 src/data/iconLibrary.ts
+src/data/quotes.ts
+quotes_src
+gen-quotes.cjs

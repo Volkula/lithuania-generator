@@ -1,4 +1,6 @@
-export const CANVAS_SIZE = 1024;
+export const DEFAULT_CANVAS_SIZE = 1024;
+/** Default square canvas edge — prefer `state.canvasWidth` / `state.canvasHeight`. */
+export const CANVAS_SIZE = DEFAULT_CANVAS_SIZE;
 
 export type MonoColor = "#000000" | "#ffffff";
 
@@ -77,6 +79,9 @@ export interface BWState {
 }
 
 export interface EditorState {
+  projectName: string;
+  canvasWidth: number;
+  canvasHeight: number;
   layers: Layer[];
   background: BackgroundState;
   frame: FrameState;
@@ -87,6 +92,9 @@ export interface EditorState {
 
 export function createInitialState(): EditorState {
   return {
+    projectName: "Untitled litany",
+    canvasWidth: DEFAULT_CANVAS_SIZE,
+    canvasHeight: DEFAULT_CANVAS_SIZE,
     layers: [],
     background: {
       src: null,

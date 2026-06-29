@@ -1,9 +1,15 @@
-import { useEffect, useRef } from "react";
-import { CANVAS_SIZE, EditorState, ImageLayer, Layer } from "../types";
+import { useEffect, useRef, useState } from "react";
+import { EditorState, ImageLayer, Layer } from "../types";
+import { getCanvasDimensions } from "../lib/canvasSize";
 import { Box, drawScene, layerBox } from "../lib/render";
 import { getImage, subscribe } from "../lib/images";
 
 type Handle = "nw" | "ne" | "sw" | "se";
+
+const DISPLAY_BASE = 640; // longest canvas edge at 100% zoom
+const ZOOM_MIN = 0.25;
+const ZOOM_MAX = 5;
+const clampZoom = (z: number) => Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, z));
 
 interface Props {
   state: EditorState;
@@ -62,8 +68,24 @@ export default function CanvasStage({
 }: Props) {
   const sceneRef = useRef<HTMLCanvasElement>(null);
   const overlayRef = useRef<HTMLCanvasElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const renderRef = useRef<() => void>(() => {});
   const guidesRef = useRef<Guide[]>([]);
+  const [zoom, setZoom] = useState(1);
+  const [showGrid, setShowGrid] = useState(false);
+  const [gridSize, setGridSize] = useState(64);
+  const { width: canvasW, height: canvasH } = getCanvasDimensions(state);
+  const displayScale = DISPLAY_BASE / Math.max(canvasW, canvasH);
+
+  const fitZoom = () => {
+    const area = stageRef.current?.parentElement;
+    if (!area) return;
+    const aw = area.clientWidth - 48;
+    const ah = area.clientHeight - 96;
+    const baseW = canvasW * displayScale;
+    const baseH = canvasH * displayScale;
+    setZoom(clampZoom(Math.min(aw / baseW, ah / baseH)));
+  };
   const interaction = useRef<{
     kind: "move" | "resize" | "crop-move" | "crop-resize";
     handle?: Handle;
@@ -82,8 +104,62 @@ export default function CanvasStage({
     if (!sctx || !octx) return;
     drawScene(sctx, state, { includeFrame: state.frame.enabled });
 
-    octx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    octx.clearRect(0, 0, canvasW, canvasH);
     const sel = state.layers.find((l) => l.id === state.selectedId);
+
+    // Layout grid with measurement ticks (overlay only — never exported).
+    if (showGrid) {
+      octx.save();
+      octx.lineWidth = 1;
+      octx.font = "11px system-ui, sans-serif";
+      octx.fillStyle = "rgba(148,163,184,0.85)";
+      const midX = canvasW / 2;
+      const midY = canvasH / 2;
+      octx.strokeStyle = "rgba(236,72,153,0.45)";
+      octx.beginPath();
+      octx.moveTo(midX, 0);
+      octx.lineTo(midX, canvasH);
+      octx.moveTo(0, midY);
+      octx.lineTo(canvasW, midY);
+      octx.stroke();
+      octx.fillText(String(Math.round(midX)), midX + 4, 14);
+      octx.fillText(String(Math.round(midY)), 4, midY - 4);
+      for (let x = gridSize; x < canvasW; x += gridSize) {
+        octx.strokeStyle =
+          x % (gridSize * 4) === 0
+            ? "rgba(59,130,246,0.35)"
+            : "rgba(59,130,246,0.15)";
+        octx.beginPath();
+        octx.moveTo(x, 0);
+        octx.lineTo(x, canvasH);
+        octx.stroke();
+        octx.fillText(String(x), x + 2, 12);
+      }
+      for (let y = gridSize; y < canvasH; y += gridSize) {
+        octx.strokeStyle =
+          y % (gridSize * 4) === 0
+            ? "rgba(59,130,246,0.35)"
+            : "rgba(59,130,246,0.15)";
+        octx.beginPath();
+        octx.moveTo(0, y);
+        octx.lineTo(canvasW, y);
+        octx.stroke();
+        octx.fillText(String(y), 2, y - 3);
+      }
+      octx.strokeStyle = "rgba(34,211,238,0.55)";
+      octx.lineWidth = 1.5;
+      for (const f of [1 / 3, 1 / 2, 2 / 3]) {
+        const px = Math.round(canvasW * f);
+        const py = Math.round(canvasH * f);
+        octx.beginPath();
+        octx.moveTo(px, 0);
+        octx.lineTo(px, canvasH);
+        octx.moveTo(0, py);
+        octx.lineTo(canvasW, py);
+        octx.stroke();
+      }
+      octx.restore();
+    }
 
     // Alignment guides.
     octx.strokeStyle = "#ff3b6b";
@@ -92,10 +168,10 @@ export default function CanvasStage({
       octx.beginPath();
       if (g.axis === "x") {
         octx.moveTo(g.pos, 0);
-        octx.lineTo(g.pos, CANVAS_SIZE);
+        octx.lineTo(g.pos, canvasH);
       } else {
         octx.moveTo(0, g.pos);
-        octx.lineTo(CANVAS_SIZE, g.pos);
+        octx.lineTo(canvasW, g.pos);
       }
       octx.stroke();
     }
@@ -157,12 +233,42 @@ export default function CanvasStage({
 
   useEffect(() => subscribe(() => renderRef.current()), []);
 
+  useEffect(() => {
+    fitZoom();
+  }, [canvasW, canvasH]);
+
+  useEffect(() => {
+    const scene = sceneRef.current;
+    const overlay = overlayRef.current;
+    if (scene) {
+      scene.width = canvasW;
+      scene.height = canvasH;
+    }
+    if (overlay) {
+      overlay.width = canvasW;
+      overlay.height = canvasH;
+    }
+    renderRef.current();
+  }, [canvasW, canvasH]);
+
+  // Ctrl + wheel zoom (native non-passive listener so we can preventDefault).
+  useEffect(() => {
+    const el = overlayRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      if (!e.ctrlKey) return;
+      e.preventDefault();
+      setZoom((z) => clampZoom(z * (e.deltaY < 0 ? 1.1 : 0.9)));
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
+
   function toCanvasCoords(e: React.PointerEvent): { x: number; y: number } {
     const rect = sceneRef.current!.getBoundingClientRect();
-    const scale = CANVAS_SIZE / rect.width;
     return {
-      x: (e.clientX - rect.left) * scale,
-      y: (e.clientY - rect.top) * scale,
+      x: (e.clientX - rect.left) * (canvasW / rect.width),
+      y: (e.clientY - rect.top) * (canvasH / rect.height),
     };
   }
 
@@ -186,7 +292,8 @@ export default function CanvasStage({
 
   function snapMove(startBox: Box, dx: number, dy: number) {
     const guides: Guide[] = [];
-    const c = CANVAS_SIZE / 2;
+    const cxTarget = canvasW / 2;
+    const cyTarget = canvasH / 2;
     let sx = dx;
     let sy = dy;
     const left = startBox.x + dx;
@@ -197,11 +304,11 @@ export default function CanvasStage({
     const bottom = startBox.y + startBox.h + dy;
 
     const xs: [number, number][] = [
-      [cx, c],
+      [cx, cxTarget],
       [left, 0],
-      [right, CANVAS_SIZE],
+      [right, canvasW],
       [cx, 0],
-      [cx, CANVAS_SIZE],
+      [cx, canvasW],
     ];
     for (const [val, target] of xs) {
       if (Math.abs(val - target) <= SNAP) {
@@ -211,11 +318,11 @@ export default function CanvasStage({
       }
     }
     const ys: [number, number][] = [
-      [cy, c],
+      [cy, cyTarget],
       [top, 0],
-      [bottom, CANVAS_SIZE],
+      [bottom, canvasH],
       [cy, 0],
-      [cy, CANVAS_SIZE],
+      [cy, canvasH],
     ];
     for (const [val, target] of ys) {
       if (Math.abs(val - target) <= SNAP) {
@@ -442,19 +549,68 @@ export default function CanvasStage({
     }
   }
 
+  const displayW = Math.round(canvasW * displayScale * zoom);
+  const displayH = Math.round(canvasH * displayScale * zoom);
+
   return (
-    <div className="stage">
-      <div className="stage-canvas-wrap">
+    <div className="stage" ref={stageRef}>
+      <div className="stage-toolbar">
+        <div className="zoom-controls">
+          <button
+            onClick={() => setZoom((z) => clampZoom(z - 0.25))}
+            title="Zoom out"
+          >
+            −
+          </button>
+          <span className="zoom-label">{Math.round(zoom * 100)}%</span>
+          <button
+            onClick={() => setZoom((z) => clampZoom(z + 0.25))}
+            title="Zoom in"
+          >
+            +
+          </button>
+          <button onClick={() => setZoom(1)} title="Actual size">
+            1:1
+          </button>
+          <button onClick={fitZoom} title="Fit to view">
+            Fit
+          </button>
+        </div>
+        <div className="grid-controls">
+          <button
+            className={showGrid ? "active" : ""}
+            onClick={() => setShowGrid((g) => !g)}
+            title="Toggle layout grid (not exported)"
+          >
+            ▦ Grid
+          </button>
+          {showGrid && (
+            <select
+              value={gridSize}
+              onChange={(e) => setGridSize(Number(e.target.value))}
+              title="Grid spacing"
+            >
+              <option value={32}>32px</option>
+              <option value={64}>64px</option>
+              <option value={128}>128px</option>
+            </select>
+          )}
+        </div>
+      </div>
+      <div
+        className="stage-canvas-wrap"
+        style={{ width: displayW, height: displayH }}
+      >
         <canvas
           ref={sceneRef}
-          width={CANVAS_SIZE}
-          height={CANVAS_SIZE}
+          width={canvasW}
+          height={canvasH}
           className="scene-canvas"
         />
         <canvas
           ref={overlayRef}
-          width={CANVAS_SIZE}
-          height={CANVAS_SIZE}
+          width={canvasW}
+          height={canvasH}
           className="overlay-canvas"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
@@ -462,7 +618,7 @@ export default function CanvasStage({
         />
       </div>
       <div className="stage-caption">
-        1024 × 1024 · strict black &amp; white
+        {canvasW} × {canvasH} · Ctrl+wheel zoom · grid is overlay only
         {cropMode ? " · CROP MODE" : ""}
       </div>
     </div>

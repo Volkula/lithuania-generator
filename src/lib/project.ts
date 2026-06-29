@@ -1,4 +1,4 @@
-import { EditorState, createInitialState } from "../types";
+import { DEFAULT_CANVAS_SIZE, EditorState, createInitialState } from "../types";
 
 const AUTOSAVE_KEY = "lithania.project.autosave.v1";
 
@@ -28,6 +28,9 @@ export function parseProject(raw: string): EditorState {
   return {
     ...base,
     ...state,
+    canvasWidth: state.canvasWidth ?? DEFAULT_CANVAS_SIZE,
+    canvasHeight: state.canvasHeight ?? DEFAULT_CANVAS_SIZE,
+    projectName: state.projectName?.trim() || "Untitled litany",
     selectedId: null,
   } as EditorState;
 }

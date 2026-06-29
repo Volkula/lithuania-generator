@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
-  CANVAS_SIZE,
   EditorState,
   ImageLayer,
   Layer,
@@ -8,6 +7,11 @@ import {
   TextLayer,
   createInitialState,
 } from "./types";
+import {
+  CANVAS_SIZE_PRESETS,
+  getCanvasDimensions,
+  resizeCanvasState,
+} from "./lib/canvasSize";
 import { useHistory } from "./hooks/useHistory";
 import CanvasStage from "./components/CanvasStage";
 import { Field, NumberInput, Section, Slider, Toggle } from "./components/ui";
@@ -19,6 +23,15 @@ import {
   downloadBlob,
   exportImage,
 } from "./lib/exportImage";
+import {
+  loadExportPrefs,
+  pickExportFolder,
+  projectBasename,
+  saveBlob,
+  storeExportPrefs,
+  supportsFolderPicker,
+  type SaveDestination,
+} from "./lib/fileSave";
 import { clearFailure, getImage, hasFailed } from "./lib/images";
 import {
   exportCustomJson,
@@ -36,9 +49,12 @@ import {
 import { PRESETS } from "./lib/presets";
 import { registerFontFile } from "./lib/fonts";
 import IconLibrary from "./components/IconLibrary";
+import QuotesCatalog from "./components/QuotesCatalog";
+import { exportPack } from "./lib/pack";
 import { iconUrl } from "./lib/icons";
 
-type Tab = "library" | "text" | "image" | "icons" | "canvas" | "export";
+type Tab =
+  "library" | "quotes" | "text" | "image" | "icons" | "canvas" | "export";
 
 // Latin display fonts first, then Cyrillic-capable faces (для русского текста).
 const FONTS = [
@@ -100,6 +116,12 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [exportFormat, setExportFormat] = useState<ExportFormat>("png");
+  const [saveDestination, setSaveDestination] = useState<SaveDestination>(
+    () => loadExportPrefs().destination
+  );
+  const [exportFolder, setExportFolder] =
+    useState<FileSystemDirectoryHandle | null>(null);
+  const [exportFolderLabel, setExportFolderLabel] = useState("");
   const [status, setStatus] = useState<string>("");
   const [cropMode, setCropMode] = useState(false);
   const [customFonts, setCustomFonts] = useState<string[]>([]);
@@ -114,6 +136,34 @@ export default function App() {
   useEffect(() => {
     saveCustom(custom);
   }, [custom]);
+
+  useEffect(() => {
+    document.title = `${state.projectName} · Lithania Generator`;
+  }, [state.projectName]);
+
+  useEffect(() => {
+    storeExportPrefs({ destination: saveDestination });
+  }, [saveDestination]);
+
+  const promptExportFolder = useCallback(async () => {
+    const handle = await pickExportFolder();
+    if (!handle) return null;
+    setExportFolder(handle);
+    setExportFolderLabel(handle.name);
+    setSaveDestination("folder");
+    return handle;
+  }, []);
+
+  const saveExportFile = useCallback(
+    async (blob: Blob, filename: string, mimeType?: string) =>
+      saveBlob(blob, filename, {
+        destination: saveDestination,
+        folder: exportFolder,
+        mimeType,
+        promptForFolder: promptExportFolder,
+      }),
+    [exportFolder, promptExportFolder, saveDestination]
+  );
 
   // Debounced autosave of the whole project so reloads keep your work.
   useEffect(() => {
@@ -190,30 +240,34 @@ export default function App() {
 
   const addTextLayer = useCallback(
     (text: string, name: string) => {
-      const layer: TextLayer = {
-        id: uid("text"),
-        type: "text",
-        name,
-        text,
-        x: CANVAS_SIZE / 2,
-        y: 150,
-        maxWidth: 800,
-        fontFamily: FONTS[0],
-        fontSize: 42,
-        fontWeight: 600,
-        italic: false,
-        uppercase: false,
-        align: "center",
-        lineHeight: 1.32,
-        letterSpacing: 0,
-        color: "#000000",
-        visible: true,
-      };
-      set((p) => ({
-        ...p,
-        layers: [...p.layers, layer],
-        selectedId: layer.id,
-      }));
+      set((p) => {
+        const { width: cw, height: ch } = getCanvasDimensions(p);
+        const fontScale = Math.sqrt((cw * ch) / (1024 * 1024));
+        const layer: TextLayer = {
+          id: uid("text"),
+          type: "text",
+          name,
+          text,
+          x: cw / 2,
+          y: Math.round(ch * 0.146),
+          maxWidth: Math.round(cw * 0.78),
+          fontFamily: FONTS[0],
+          fontSize: Math.max(8, Math.round(42 * fontScale)),
+          fontWeight: 600,
+          italic: false,
+          uppercase: false,
+          align: "center",
+          lineHeight: 1.32,
+          letterSpacing: 0,
+          color: "#000000",
+          visible: true,
+        };
+        return {
+          ...p,
+          layers: [...p.layers, layer],
+          selectedId: layer.id,
+        };
+      });
       setTab("text");
     },
     [set]
@@ -227,44 +281,49 @@ export default function App() {
     ) => {
       try {
         const { w, h } = await loadDimensions(src);
-        const maxDim = opts?.targetWidth ?? 520;
-        const scale = opts?.targetWidth
-          ? maxDim / w
-          : Math.min(1, maxDim / Math.max(w, h));
-        const width = Math.round(w * scale);
-        const height = Math.round(h * scale);
-        const centerX = opts?.centerX ?? CANVAS_SIZE / 2;
-        const centerY = opts?.centerY ?? CANVAS_SIZE / 2;
-        const layer: ImageLayer = {
-          id: uid("img"),
-          type: "image",
-          name,
-          src,
-          x: Math.round(centerX - width / 2),
-          y: Math.round(centerY - height / 2),
-          width,
-          height,
-          naturalWidth: w,
-          naturalHeight: h,
-          cropX: 0,
-          cropY: 0,
-          cropW: w,
-          cropH: h,
-          flipX: false,
-          flipY: false,
-          rotation: 0,
-          opacity: 1,
-          bw: false,
-          threshold: 128,
-          invert: false,
-          visible: true,
-        };
-        getImage(src);
-        set((p) => ({
-          ...p,
-          layers: [...p.layers, layer],
-          selectedId: layer.id,
-        }));
+        set((p) => {
+          const { width: cw, height: ch } = getCanvasDimensions(p);
+          const layoutScale = Math.sqrt((cw * ch) / (1024 * 1024));
+          const centerX = opts?.centerX ?? cw / 2;
+          const centerY = opts?.centerY ?? ch / 2;
+          const maxDim =
+            opts?.targetWidth ?? Math.round(520 * layoutScale);
+          const scale = opts?.targetWidth
+            ? maxDim / w
+            : Math.min(1, maxDim / Math.max(w, h));
+          const width = Math.round(w * scale);
+          const height = Math.round(h * scale);
+          const layer: ImageLayer = {
+            id: uid("img"),
+            type: "image",
+            name,
+            src,
+            x: Math.round(centerX - width / 2),
+            y: Math.round(centerY - height / 2),
+            width,
+            height,
+            naturalWidth: w,
+            naturalHeight: h,
+            cropX: 0,
+            cropY: 0,
+            cropW: w,
+            cropH: h,
+            flipX: false,
+            flipY: false,
+            rotation: 0,
+            opacity: 1,
+            bw: false,
+            threshold: 128,
+            invert: false,
+            visible: true,
+          };
+          getImage(src);
+          return {
+            ...p,
+            layers: [...p.layers, layer],
+            selectedId: layer.id,
+          };
+        });
         setStatus(`Added image "${name}".`);
       } catch (e) {
         setStatus(
@@ -422,12 +481,20 @@ export default function App() {
     }
   }, []);
 
-  const handleSaveProject = useCallback(() => {
-    const blob = new Blob([serializeProject(state)], {
-      type: "application/json",
-    });
-    downloadBlob(blob, "litany-project.json");
-  }, [state]);
+  const handleSaveProject = useCallback(async () => {
+    try {
+      const filename = `${projectBasename(state)}.json`;
+      const blob = new Blob([serializeProject(state)], {
+        type: "application/json",
+      });
+      const saved = await saveExportFile(blob, filename, "application/json");
+      if (saved) {
+        setStatus(`Project saved as "${filename}".`);
+      }
+    } catch (e) {
+      setStatus(`Project save failed: ${(e as Error).message}`);
+    }
+  }, [saveExportFile, state]);
 
   const handleLoadProject = useCallback(
     async (file: File) => {
@@ -462,6 +529,8 @@ export default function App() {
   const emblemUrl = (file: string) => `${import.meta.env.BASE_URL}${file}`;
 
   const buildImperialBanner = useCallback(async () => {
+    const { width: cw, height: ch } = getCanvasDimensions(state);
+    const layoutScale = Math.sqrt((cw * ch) / (1024 * 1024));
     set((p) => ({
       ...p,
       canvasBg: "#ffffff",
@@ -472,8 +541,8 @@ export default function App() {
         exportWithFrame: true,
         style: "banner",
         color: "#000000",
-        thickness: 8,
-        margin: 60,
+        thickness: Math.max(4, Math.round(8 * layoutScale)),
+        margin: Math.round(60 * layoutScale),
       },
       layers: p.layers.map((l) =>
         l.type === "text"
@@ -482,27 +551,27 @@ export default function App() {
               fontFamily: "'Ruslan Display', cursive",
               align: "center",
               color: "#000000",
-              x: CANVAS_SIZE / 2,
-              y: 360,
-              maxWidth: 560,
-              fontSize: 30,
+              x: cw / 2,
+              y: Math.round(ch * 0.352),
+              maxWidth: Math.round(cw * 0.547),
+              fontSize: Math.max(8, Math.round(30 * layoutScale)),
               lineHeight: 1.3,
             }
           : l
       ),
     }));
     await addImageFromSrc(emblemUrl(EMBLEMS[0].file), "Skull & Laurel", {
-      targetWidth: 300,
-      centerX: CANVAS_SIZE / 2,
-      centerY: 210,
+      targetWidth: Math.round(300 * layoutScale),
+      centerX: cw / 2,
+      centerY: Math.round(ch * 0.205),
     });
     await addImageFromSrc(emblemUrl(EMBLEMS[1].file), "Winged Sword", {
-      targetWidth: 300,
-      centerX: CANVAS_SIZE / 2,
-      centerY: 820,
+      targetWidth: Math.round(300 * layoutScale),
+      centerX: cw / 2,
+      centerY: Math.round(ch * 0.801),
     });
     setStatus("Imperial banner assembled. Tweak text & emblems as needed.");
-  }, [addImageFromSrc, set]);
+  }, [addImageFromSrc, set, state]);
 
   async function handleFileImport(file: File) {
     try {
@@ -519,11 +588,38 @@ export default function App() {
       setStatus("Rendering…");
       const blob = await exportImage(state, exportFormat);
       const ext = EXPORT_FORMATS.find((f) => f.id === exportFormat)!.ext;
-      downloadBlob(blob, `litany-1024.${ext}`);
-      setStatus(`Exported ${exportFormat.toUpperCase()}.`);
+      const filename = `${projectBasename(state)}-${state.canvasWidth}x${state.canvasHeight}.${ext}`;
+      const mime =
+        exportFormat === "png"
+          ? "image/png"
+          : exportFormat === "jpeg"
+            ? "image/jpeg"
+            : exportFormat === "webp"
+              ? "image/webp"
+              : "image/bmp";
+      const saved = await saveExportFile(blob, filename, mime);
+      if (saved) {
+        setStatus(`Exported ${filename}.`);
+      }
     } catch (e) {
       setStatus(
         `Export failed — a remote image may have tainted the canvas. (${(e as Error).message})`
+      );
+    }
+  }
+
+  async function handleExportPack() {
+    try {
+      setStatus("Building asset pack…");
+      const blob = await exportPack(state);
+      const filename = `${projectBasename(state)}-pack.zip`;
+      const saved = await saveExportFile(blob, filename, "application/zip");
+      if (saved) {
+        setStatus(`Asset pack saved as "${filename}".`);
+      }
+    } catch (e) {
+      setStatus(
+        `Pack export failed — a remote image may have tainted the canvas. (${(e as Error).message})`
       );
     }
   }
@@ -540,6 +636,22 @@ export default function App() {
           />
           <span>Lithania Generator</span>
         </div>
+        <input
+          className="project-name-input"
+          value={state.projectName}
+          onChange={(e) =>
+            set((p) => ({ ...p, projectName: e.target.value }), "replace")
+          }
+          onBlur={(e) =>
+            set((p) => ({
+              ...p,
+              projectName: e.target.value.trim() || "Untitled litany",
+            }))
+          }
+          placeholder="Project name"
+          title="Project name — used in export filenames"
+          spellCheck={false}
+        />
         <div className="toolbar">
           <button onClick={undo} disabled={!canUndo} title="Undo (Ctrl+Z)">
             ↶ Undo
@@ -584,6 +696,9 @@ export default function App() {
           <button className="primary" onClick={handleExport}>
             Export ⬇
           </button>
+          <button onClick={handleExportPack} title="ZIP: text + images separated">
+            Pack ⬇
+          </button>
         </div>
       </header>
 
@@ -591,7 +706,15 @@ export default function App() {
         <aside className="sidebar">
           <nav className="tabs">
             {(
-              ["library", "text", "image", "icons", "canvas", "export"] as Tab[]
+              [
+                "library",
+                "quotes",
+                "text",
+                "image",
+                "icons",
+                "canvas",
+                "export",
+              ] as Tab[]
             ).map((t) => (
               <button
                 key={t}
@@ -600,15 +723,17 @@ export default function App() {
               >
                 {t === "library"
                   ? "Texts"
-                  : t === "text"
-                    ? "Custom"
-                    : t === "image"
-                      ? "Images"
-                      : t === "icons"
-                        ? "Icons"
-                        : t === "canvas"
-                          ? "Canvas"
-                          : "Export"}
+                  : t === "quotes"
+                    ? "Quotes"
+                    : t === "text"
+                      ? "Custom"
+                      : t === "image"
+                        ? "Images"
+                        : t === "icons"
+                          ? "Icons"
+                          : t === "canvas"
+                            ? "Canvas"
+                            : "Export"}
               </button>
             ))}
           </nav>
@@ -670,6 +795,12 @@ export default function App() {
                   )}
                 </div>
               </Section>
+            )}
+
+            {tab === "quotes" && (
+              <QuotesCatalog
+                onAdd={(text, title) => addTextLayer(text, title)}
+              />
             )}
 
             {tab === "text" && (
@@ -884,6 +1015,66 @@ export default function App() {
 
             {tab === "export" && (
               <Section title="Export">
+                <Field label="Project name">
+                  <input
+                    className="text-input"
+                    value={state.projectName}
+                    onChange={(e) =>
+                      set((p) => ({ ...p, projectName: e.target.value }), "replace")
+                    }
+                    onBlur={(e) =>
+                      set((p) => ({
+                        ...p,
+                        projectName: e.target.value.trim() || "Untitled litany",
+                      }))
+                    }
+                    spellCheck={false}
+                  />
+                </Field>
+                <Field label="Save to">
+                  <select
+                    className="text-input"
+                    value={saveDestination}
+                    onChange={(e) => {
+                      const v = e.target.value as SaveDestination;
+                      setSaveDestination(v);
+                      if (v === "folder" && !exportFolder) {
+                        void promptExportFolder();
+                      }
+                    }}
+                  >
+                    <option value="downloads">Browser Downloads</option>
+                    <option value="folder" disabled={!supportsFolderPicker()}>
+                      Chosen folder
+                      {!supportsFolderPicker() ? " (Chrome/Edge only)" : ""}
+                    </option>
+                  </select>
+                </Field>
+                {saveDestination === "folder" && (
+                  <div className="export-folder-row">
+                    <p className="muted">
+                      {exportFolderLabel
+                        ? `Folder: ${exportFolderLabel}`
+                        : "No folder selected yet."}
+                    </p>
+                    <div className="row wrap">
+                      <button type="button" onClick={() => void promptExportFolder()}>
+                        Choose folder…
+                      </button>
+                      {exportFolder && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setExportFolder(null);
+                            setExportFolderLabel("");
+                          }}
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
                 <Field label="Format">
                   <select
                     className="text-input"
@@ -910,11 +1101,27 @@ export default function App() {
                   }
                 />
                 <button className="primary block-btn" onClick={handleExport}>
-                  Export 1024×1024 ⬇
+                  Export {state.canvasWidth}×{state.canvasHeight} ⬇
                 </button>
                 <p className="muted">
-                  Output is always {CANVAS_SIZE}×{CANVAS_SIZE}. The BMP option
-                  is true 1-bit black &amp; white.
+                  Files:{" "}
+                  <code>
+                    {projectBasename(state)}-{state.canvasWidth}x
+                    {state.canvasHeight}.[ext]
+                  </code>
+                  , <code>{projectBasename(state)}-pack.zip</code>,{" "}
+                  <code>{projectBasename(state)}.json</code>
+                </p>
+                <hr />
+                <h4 className="subhead">Asset pack</h4>
+                <button className="block-btn" onClick={handleExportPack}>
+                  ⬇ Export asset pack (.zip)
+                </button>
+                <p className="muted">
+                  Bundles the flat composite plus every text layer and image
+                  layer rendered separately on transparent backgrounds, the raw
+                  litany text, and a manifest — text and images kept apart for
+                  building asset packs.
                 </p>
               </Section>
             )}
@@ -993,6 +1200,7 @@ export default function App() {
                 <TextProperties
                   layer={selected}
                   fonts={fonts}
+                  canvasWidth={state.canvasWidth}
                   update={(patch, mode) => updateText(selected.id, patch, mode)}
                 />
               ) : (
@@ -1023,8 +1231,83 @@ function CanvasControls({
   const bg = state.background;
   const f = state.frame;
   const bw = state.bw;
+  const [draftW, setDraftW] = useState(state.canvasWidth);
+  const [draftH, setDraftH] = useState(state.canvasHeight);
+  const [lockSquare, setLockSquare] = useState(
+    state.canvasWidth === state.canvasHeight
+  );
+
+  useEffect(() => {
+    setDraftW(state.canvasWidth);
+    setDraftH(state.canvasHeight);
+  }, [state.canvasWidth, state.canvasHeight]);
+
+  function applyCanvasSize(w: number, h: number) {
+    set((p) => resizeCanvasState(p, w, h));
+  }
+
   return (
     <>
+      <Section title="Canvas size">
+        <p className="muted">
+          Layers, text, frame and margins scale automatically when you change
+          size.
+        </p>
+        <div className="preset-grid">
+          {CANVAS_SIZE_PRESETS.map((preset) => (
+            <button
+              key={preset.label}
+              className={
+                state.canvasWidth === preset.width &&
+                state.canvasHeight === preset.height
+                  ? "active"
+                  : ""
+              }
+              onClick={() => applyCanvasSize(preset.width, preset.height)}
+            >
+              {preset.label}
+            </button>
+          ))}
+        </div>
+        <div className="grid2">
+          <Field label="Width">
+            <NumberInput
+              value={draftW}
+              min={256}
+              max={8192}
+              onChange={(v) => {
+                setDraftW(v);
+                if (lockSquare) setDraftH(v);
+              }}
+            />
+          </Field>
+          <Field label="Height">
+            <NumberInput
+              value={draftH}
+              min={256}
+              max={8192}
+              onChange={(v) => {
+                setDraftH(v);
+                if (lockSquare) setDraftW(v);
+              }}
+            />
+          </Field>
+        </div>
+        <Toggle
+          label="Lock square (1:1)"
+          checked={lockSquare}
+          onChange={setLockSquare}
+        />
+        <button
+          className="block-btn"
+          onClick={() => applyCanvasSize(draftW, draftH)}
+        >
+          Apply size &amp; scale layout
+        </button>
+        <p className="muted">
+          Current: {state.canvasWidth} × {state.canvasHeight} px
+        </p>
+      </Section>
       <Section title="Strict Black & White">
         <Toggle
           label="Enable 1-bit B/W conversion"
@@ -1075,7 +1358,8 @@ function CanvasControls({
           <>
             <p className="muted">
               Source {bg.naturalWidth}×{bg.naturalHeight}px. Crop region (in
-              source pixels) is scaled to cover the 1024² canvas.
+              source pixels) is scaled to cover the canvas (
+              {state.canvasWidth}×{state.canvasHeight}).
             </p>
             <div className="grid2">
               <Field label="Crop X">
@@ -1257,10 +1541,12 @@ function CanvasControls({
 function TextProperties({
   layer,
   fonts,
+  canvasWidth,
   update,
 }: {
   layer: TextLayer;
   fonts: string[];
+  canvasWidth: number;
   update: (patch: Partial<TextLayer>, mode?: "commit" | "replace") => void;
 }) {
   return (
@@ -1331,7 +1617,7 @@ function TextProperties({
           <NumberInput
             value={layer.maxWidth}
             min={40}
-            max={CANVAS_SIZE}
+            max={canvasWidth}
             onChange={(v) => update({ maxWidth: v })}
           />
         </Field>
