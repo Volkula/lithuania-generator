@@ -35,8 +35,10 @@ import {
 } from "./lib/project";
 import { PRESETS } from "./lib/presets";
 import { registerFontFile } from "./lib/fonts";
+import IconLibrary from "./components/IconLibrary";
+import { iconUrl } from "./lib/icons";
 
-type Tab = "library" | "text" | "image" | "canvas" | "export";
+type Tab = "library" | "text" | "image" | "icons" | "canvas" | "export";
 
 // Latin display fonts first, then Cyrillic-capable faces (для русского текста).
 const FONTS = [
@@ -588,25 +590,27 @@ export default function App() {
       <div className="layout">
         <aside className="sidebar">
           <nav className="tabs">
-            {(["library", "text", "image", "canvas", "export"] as Tab[]).map(
-              (t) => (
-                <button
-                  key={t}
-                  className={tab === t ? "active" : ""}
-                  onClick={() => setTab(t)}
-                >
-                  {t === "library"
-                    ? "Library"
-                    : t === "text"
-                      ? "Text"
-                      : t === "image"
-                        ? "Images"
+            {(
+              ["library", "text", "image", "icons", "canvas", "export"] as Tab[]
+            ).map((t) => (
+              <button
+                key={t}
+                className={tab === t ? "active" : ""}
+                onClick={() => setTab(t)}
+              >
+                {t === "library"
+                  ? "Texts"
+                  : t === "text"
+                    ? "Custom"
+                    : t === "image"
+                      ? "Images"
+                      : t === "icons"
+                        ? "Icons"
                         : t === "canvas"
                           ? "Canvas"
                           : "Export"}
-                </button>
-              )
-            )}
+              </button>
+            ))}
           </nav>
 
           <div className="tab-content">
@@ -849,6 +853,15 @@ export default function App() {
                   font on your text, and adds both emblems — like the reference.
                 </p>
               </Section>
+            )}
+
+            {tab === "icons" && (
+              <IconLibrary
+                onAdd={(file, label) =>
+                  addImageFromSrc(iconUrl(file), label, { targetWidth: 300 })
+                }
+                onBackground={(file) => setBackgroundFromSrc(iconUrl(file))}
+              />
             )}
 
             {tab === "canvas" && (

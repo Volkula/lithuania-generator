@@ -19,6 +19,8 @@ src/
   index.css                 # all styles (dark editor theme)
   types.ts                  # EditorState + layer models, CANVAS_SIZE
   data/litanies.ts          # curated, sorted litany library
+  data/iconLibrary.ts       # AUTO-GENERATED index of 456 wh40k icon SVGs
+public/wh40k/               # vendored faction iconography SVGs (seal-generator)
   hooks/useHistory.ts       # undo/redo history (commit vs replace modes)
   lib/
     images.ts               # image cache + load notifications

@@ -36,7 +36,13 @@ in several formats. Runs entirely in the browser — no server, no backend.
    Imperial Banner”** that arranges emblems + Cyrillic text + scroll frame like
    the reference. Cyrillic-capable fonts are bundled, and you can **upload your
    own font** (e.g. a Cyrillic Fraktur) via the Text tab.
-9. **Editor conveniences** — drag layers with **snap/alignment guides**
+9. **Iconography library** — **456 WH40k faction / iconography SVGs** (Imperium,
+   Chaos, Xenos sub-factions, General) in the **Icons** tab, searchable and
+   filterable by category. Click to drop an icon onto the canvas, Shift+Click to
+   use it as the background. Assets are vendored under `public/wh40k/` from the
+   [seal-generator](https://github.com/Volkula/seal-generator) library and
+   indexed by `src/data/iconLibrary.ts`.
+10. **Editor conveniences** — drag layers with **snap/alignment guides**
    (centre & edges), **visual mouse cropping** for image layers, one-click
    **layout presets**, **Save / Load project** as JSON, and silent autosave so a
    page reload keeps your work. A wide selection of thematic **Google fonts**

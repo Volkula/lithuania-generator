@@ -1,0 +1,2282 @@
+﻿[
+    {
+        "category":  "Chaos",
+        "name":  "Alpha Legion [Chaos, Heretic Astartes, Chaos Space Marines, Legion]",
+        "path":  "./wh40k/Chaos/Alpha Legion [Chaos, Heretic Astartes, Chaos Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Black Legion [Chaos, Heretic Astartes, Chaos Space Marines, Legion]",
+        "path":  "./wh40k/Chaos/Black Legion [Chaos, Heretic Astartes, Chaos Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Chaos Daemons [Chaos]",
+        "path":  "./wh40k/Chaos/Chaos Daemons [Chaos].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Chaos Daemons 2 [Chaos]",
+        "path":  "./wh40k/Chaos/Chaos Daemons 2 [Chaos].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "chaos-star-01",
+        "path":  "./wh40k/Chaos/chaos-star-01.svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Dark Mechanicum [Chaos]",
+        "path":  "./wh40k/Chaos/Dark Mechanicum [Chaos].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Death Guard [Chaos, Heretic Astartes, Chaos Space Marines, Legion, Nurgle]",
+        "path":  "./wh40k/Chaos/Death Guard [Chaos, Heretic Astartes, Chaos Space Marines, Legion, Nurgle].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Emperor_s Children [Chaos, Heretic Astartes, Chaos Space Marines, Legion, Slaanesh]",
+        "path":  "./wh40k/Chaos/Emperor_s Children [Chaos, Heretic Astartes, Chaos Space Marines, Legion, Slaanesh].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Extinction Angels [Chaos, Heretic Astartes, Chaos Space Marines, Warband]",
+        "path":  "./wh40k/Chaos/Extinction Angels [Chaos, Heretic Astartes, Chaos Space Marines, Warband].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Eye of Horus [Chaos, Heretic Astartes, Chaos Space Marines]",
+        "path":  "./wh40k/Chaos/Eye of Horus [Chaos, Heretic Astartes, Chaos Space Marines].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Heretic Astartes [Chaos, Chaos Space Marines]",
+        "path":  "./wh40k/Chaos/Heretic Astartes [Chaos, Chaos Space Marines].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Iron Warriors [Chaos, Heretic Astartes, Chaos Space Marines, Legion]",
+        "path":  "./wh40k/Chaos/Iron Warriors [Chaos, Heretic Astartes, Chaos Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Khorne [Chaos, Chaos Daemons, Gods]",
+        "path":  "./wh40k/Chaos/Khorne [Chaos, Chaos Daemons, Gods].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Legio Mortis [Chaos, Dark Mechanicum, Titanicus Traitoris]",
+        "path":  "./wh40k/Chaos/Legio Mortis [Chaos, Dark Mechanicum, Titanicus Traitoris].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Lost and Damned [Chaos, Renegades and Heretics]",
+        "path":  "./wh40k/Chaos/Lost and Damned [Chaos, Renegades and Heretics].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "luna-wolves",
+        "path":  "./wh40k/Chaos/luna-wolves.svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Malice [Chaos, Chaos Daemons, Gods]",
+        "path":  "./wh40k/Chaos/Malice [Chaos, Chaos Daemons, Gods].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Night Lords [Chaos, Heretic Astartes, Chaos Space Marines, Legion]",
+        "path":  "./wh40k/Chaos/Night Lords [Chaos, Heretic Astartes, Chaos Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Nurgle [Chaos, Chaos Daemons, Gods]",
+        "path":  "./wh40k/Chaos/Nurgle [Chaos, Chaos Daemons, Gods].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Pre-Heresy-Eye-of-Horus",
+        "path":  "./wh40k/Chaos/Pre-Heresy-Eye-of-Horus.svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Pre-Heresy-Iron-Warriors",
+        "path":  "./wh40k/Chaos/Pre-Heresy-Iron-Warriors.svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Questor Traitoris [Chaos, Dark Mechanicum, Chaos Knights, Renegade Knights]",
+        "path":  "./wh40k/Chaos/Questor Traitoris [Chaos, Dark Mechanicum, Chaos Knights, Renegade Knights].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Red Corsairs [Chaos, Heretic Astartes, Chaos Space Marines, Warband]",
+        "path":  "./wh40k/Chaos/Red Corsairs [Chaos, Heretic Astartes, Chaos Space Marines, Warband].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Renegades and Heretics [Chaos, Lost and Damned]",
+        "path":  "./wh40k/Chaos/Renegades and Heretics [Chaos, Lost and Damned].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Slaanesh [Chaos, Chaos Daemons, Gods]",
+        "path":  "./wh40k/Chaos/Slaanesh [Chaos, Chaos Daemons, Gods].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "slaanesh-icon-01",
+        "path":  "./wh40k/Chaos/slaanesh-icon-01.svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Sons of Horus [Chaos, Heretic Astartes, Chaos Space Marines, Legion]",
+        "path":  "./wh40k/Chaos/Sons of Horus [Chaos, Heretic Astartes, Chaos Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Sons of Malice [Chaos, Heretic Astartes, Chaos Space Marines, Regades, Malice]",
+        "path":  "./wh40k/Chaos/Sons of Malice [Chaos, Heretic Astartes, Chaos Space Marines, Regades, Malice].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "The Fallen [Chaos, Heretic Astartes, Chaos Space Marines, Dark Angels]",
+        "path":  "./wh40k/Chaos/The Fallen [Chaos, Heretic Astartes, Chaos Space Marines, Dark Angels].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Thousand Sons [Chaos, Heretic Astartes, Chaos Space Marines, Legion, Tzeentch]",
+        "path":  "./wh40k/Chaos/Thousand Sons [Chaos, Heretic Astartes, Chaos Space Marines, Legion, Tzeentch].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Thousand-Sons-PreHeresy",
+        "path":  "./wh40k/Chaos/Thousand-Sons-PreHeresy.svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Titanicus Traitoris [Chaos, Dark Mechanicum]",
+        "path":  "./wh40k/Chaos/Titanicus Traitoris [Chaos, Dark Mechanicum].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Tyrant_s Legion [Chaos, Lost and Damned, Renegades and Heretics, Astral Claws, Red Corsairs, PDF]",
+        "path":  "./wh40k/Chaos/Tyrant_s Legion [Chaos, Lost and Damned, Renegades and Heretics, Astral Claws, Red Corsairs, PDF].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Tzeentch [Chaos, Chaos Daemons, Gods]",
+        "path":  "./wh40k/Chaos/Tzeentch [Chaos, Chaos Daemons, Gods].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Word Bearers [Chaos, Heretic Astartes, Chaos Space Marines, Legion]",
+        "path":  "./wh40k/Chaos/Word Bearers [Chaos, Heretic Astartes, Chaos Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Word Bearers [Horus Heresy, Chaos, Heretic Astartes, Chaos Space Marines, Legion]",
+        "path":  "./wh40k/Chaos/Word Bearers [Horus Heresy, Chaos, Heretic Astartes, Chaos Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "word-bearers",
+        "path":  "./wh40k/Chaos/word-bearers.svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "World Eaters [Chaos, Heretic Astartes, Chaos Space Marines, Legion, Khorne]",
+        "path":  "./wh40k/Chaos/World Eaters [Chaos, Heretic Astartes, Chaos Space Marines, Legion, Khorne].svg"
+    },
+    {
+        "category":  "Chaos",
+        "name":  "Zuvassin [Chaos, Gods]",
+        "path":  "./wh40k/Chaos/Zuvassin [Chaos, Gods].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "ArmourPenetration",
+        "path":  "./wh40k/General/ArmourPenetration.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Assault",
+        "path":  "./wh40k/General/Assault.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "assault-01",
+        "path":  "./wh40k/General/assault-01.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Attacks",
+        "path":  "./wh40k/General/Attacks.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "BallisticSkill",
+        "path":  "./wh40k/General/BallisticSkill.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Damage",
+        "path":  "./wh40k/General/Damage.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Dedicated Transport [Battlefield Role]",
+        "path":  "./wh40k/General/Dedicated Transport [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Dedicated-Transport",
+        "path":  "./wh40k/General/Dedicated-Transport.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "devestator-01",
+        "path":  "./wh40k/General/devestator-01.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Elites",
+        "path":  "./wh40k/General/Elites.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Elites [Battlefield Role]",
+        "path":  "./wh40k/General/Elites [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Elites B",
+        "path":  "./wh40k/General/Elites B.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Fast Attack [Battlefield Role]",
+        "path":  "./wh40k/General/Fast Attack [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Fast-Attack",
+        "path":  "./wh40k/General/Fast-Attack.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Flyer",
+        "path":  "./wh40k/General/Flyer.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Flyer [Battlefield Role]",
+        "path":  "./wh40k/General/Flyer [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Fortification",
+        "path":  "./wh40k/General/Fortification.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Fortification [Battlefield Role]",
+        "path":  "./wh40k/General/Fortification [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Grenade",
+        "path":  "./wh40k/General/Grenade.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Heavy",
+        "path":  "./wh40k/General/Heavy.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Heavy Support [Battlefield Role]",
+        "path":  "./wh40k/General/Heavy Support [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Heavy-Support",
+        "path":  "./wh40k/General/Heavy-Support.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Heavy-Support B",
+        "path":  "./wh40k/General/Heavy-Support B.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "HQ",
+        "path":  "./wh40k/General/HQ.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "HQ [Battlefield Role]",
+        "path":  "./wh40k/General/HQ [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Kill Team",
+        "path":  "./wh40k/General/Kill Team.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Leadership",
+        "path":  "./wh40k/General/Leadership.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Lord of War [Battlefield Role]",
+        "path":  "./wh40k/General/Lord of War [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Lord-of-War",
+        "path":  "./wh40k/General/Lord-of-War.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Melee",
+        "path":  "./wh40k/General/Melee.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Move",
+        "path":  "./wh40k/General/Move.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Pistol",
+        "path":  "./wh40k/General/Pistol.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Range",
+        "path":  "./wh40k/General/Range.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "RapidFire",
+        "path":  "./wh40k/General/RapidFire.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "rogue-trader",
+        "path":  "./wh40k/General/rogue-trader.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Save",
+        "path":  "./wh40k/General/Save.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "skull-laurals",
+        "path":  "./wh40k/General/skull-laurals.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Strength",
+        "path":  "./wh40k/General/Strength.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "sword-01",
+        "path":  "./wh40k/General/sword-01.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "sword-02",
+        "path":  "./wh40k/General/sword-02.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "sword-03",
+        "path":  "./wh40k/General/sword-03.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "sword-04",
+        "path":  "./wh40k/General/sword-04.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "tactical-01",
+        "path":  "./wh40k/General/tactical-01.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "tactical-02",
+        "path":  "./wh40k/General/tactical-02.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Toughness",
+        "path":  "./wh40k/General/Toughness.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Troops",
+        "path":  "./wh40k/General/Troops.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Troops [Battlefield Role]",
+        "path":  "./wh40k/General/Troops [Battlefield Role].svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Type",
+        "path":  "./wh40k/General/Type.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "User",
+        "path":  "./wh40k/General/User.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "WeaponSkill",
+        "path":  "./wh40k/General/WeaponSkill.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Wounds",
+        "path":  "./wh40k/General/Wounds.svg"
+    },
+    {
+        "category":  "General",
+        "name":  "Xenos",
+        "path":  "./wh40k/General/Xenos.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "133rd-Lambdan-Lions",
+        "path":  "./wh40k/Imperium/133rd-Lambdan-Lions.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "32nd-Thetoid-Eagles",
+        "path":  "./wh40k/Imperium/32nd-Thetoid-Eagles.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "43rd-Iotan-Dragons",
+        "path":  "./wh40k/Imperium/43rd-Iotan-Dragons.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "54th-Psian-Jakals",
+        "path":  "./wh40k/Imperium/54th-Psian-Jakals.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Absolvers [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Absolvers [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Accipiters",
+        "path":  "./wh40k/Imperium/Accipiters.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adepta Sororitas [Imperium, Adeptus Ministorum, Ecclesiarchy, Inquisition, Ordo Hereticus, Sisters of Battle, Battle Sisters]",
+        "path":  "./wh40k/Imperium/Adepta Sororitas [Imperium, Adeptus Ministorum, Ecclesiarchy, Inquisition, Ordo Hereticus, Sisters of Battle, Battle Sisters].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Administratum [Imperium]",
+        "path":  "./wh40k/Imperium/Adeptus Administratum [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Arbites [Imperium]",
+        "path":  "./wh40k/Imperium/Adeptus Arbites [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Arbites 2 [Imperium]",
+        "path":  "./wh40k/Imperium/Adeptus Arbites 2 [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Astartes [Imperium, Space Marines]",
+        "path":  "./wh40k/Imperium/Adeptus Astartes [Imperium, Space Marines].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Astra Telepathica [Imperium]",
+        "path":  "./wh40k/Imperium/Adeptus Astra Telepathica [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Astronomica [Imperium]",
+        "path":  "./wh40k/Imperium/Adeptus Astronomica [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Custodes [Imperium, Talons of the Emperor]",
+        "path":  "./wh40k/Imperium/Adeptus Custodes [Imperium, Talons of the Emperor].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Mechanicus [Imperium]",
+        "path":  "./wh40k/Imperium/Adeptus Mechanicus [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Ministorum [Imperium, Ecclesiarchy]",
+        "path":  "./wh40k/Imperium/Adeptus Ministorum [Imperium, Ecclesiarchy].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Adeptus Terra [Imperium]",
+        "path":  "./wh40k/Imperium/Adeptus Terra [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Aeronautica Imperialis [Imperium, Imperial Navy]",
+        "path":  "./wh40k/Imperium/Aeronautica Imperialis [Imperium, Imperial Navy].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Agripinaa [Imperium, Adeptus Mechanicus, Forge World]",
+        "path":  "./wh40k/Imperium/Agripinaa [Imperium, Adeptus Mechanicus, Forge World].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "alpha-legion",
+        "path":  "./wh40k/Imperium/alpha-legion.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Angels Eradicant [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Angels Eradicant [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Angels of Absolution [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Angels of Absolution [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Angels of Defiance [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Angels of Defiance [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Angels of Iron [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Angels of Iron [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Angels of Redemption [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Angels of Redemption [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Angels of Vengeance [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Angels of Vengeance [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Angels of Vigilance [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Angels of Vigilance [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Angels Penitent [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Angels Penitent [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "apothecarium-01",
+        "path":  "./wh40k/Imperium/apothecarium-01.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "apothecarium-02",
+        "path":  "./wh40k/Imperium/apothecarium-02.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Ashen Claws [Astartes, Space Marines, Blackshields, Warband]",
+        "path":  "./wh40k/Imperium/Ashen Claws [Astartes, Space Marines, Blackshields, Warband].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Assassinorum",
+        "path":  "./wh40k/Imperium/Assassinorum.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Astra Militarum [Imperium, Imperial Guard]",
+        "path":  "./wh40k/Imperium/Astra Militarum [Imperium, Imperial Guard].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Astral Claws [Imperium, Adeptus Astartes, Space Marines, Renegades, Chapter]",
+        "path":  "./wh40k/Imperium/Astral Claws [Imperium, Adeptus Astartes, Space Marines, Renegades, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Auxilia Myrmidon [Imperium, Adeptus Mechanicus]",
+        "path":  "./wh40k/Imperium/Auxilia Myrmidon [Imperium, Adeptus Mechanicus].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Avengers [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Avengers [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Avenging Sons [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter]",
+        "path":  "./wh40k/Imperium/Avenging Sons [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Black Dragons [Imperium, Adeptus Astartes, Space Marines, Salamanders, Chapter]",
+        "path":  "./wh40k/Imperium/Black Dragons [Imperium, Adeptus Astartes, Space Marines, Salamanders, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Black Templars [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter]",
+        "path":  "./wh40k/Imperium/Black Templars [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Black Wings [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Black Wings [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Blades of Vengeance [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Blades of Vengeance [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Blood Angels [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Blood Angels [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Blood Drinkers [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Blood Drinkers [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Blood Ravens [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Blood Ravens [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Blood Swords [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Blood Swords [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Bloodied-Hunter",
+        "path":  "./wh40k/Imperium/Bloodied-Hunter.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "bloodmaws",
+        "path":  "./wh40k/Imperium/bloodmaws.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "bolter-mkv",
+        "path":  "./wh40k/Imperium/bolter-mkv.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "bolter-mkv-02",
+        "path":  "./wh40k/Imperium/bolter-mkv-02.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Cadian-Gate",
+        "path":  "./wh40k/Imperium/Cadian-Gate.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Callidus Temple [Imperium, Officio Assassinorum, Assassins]",
+        "path":  "./wh40k/Imperium/Callidus Temple [Imperium, Officio Assassinorum, Assassins].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Carcharodons [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Carcharodons [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Celestial Lions [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter]",
+        "path":  "./wh40k/Imperium/Celestial Lions [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Centurio Ordinatus [Imperium, Adeptus Mechanicus]",
+        "path":  "./wh40k/Imperium/Centurio Ordinatus [Imperium, Adeptus Mechanicus].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "centurion.honour",
+        "path":  "./wh40k/Imperium/centurion.honour.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "chaplain",
+        "path":  "./wh40k/Imperium/chaplain.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Charnel Guard [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Charnel Guard [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Collegia Titanica [Imperium, Adeptus Mechanicus, Adeptus Titanicus]",
+        "path":  "./wh40k/Imperium/Collegia Titanica [Imperium, Adeptus Mechanicus, Adeptus Titanicus].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Consecrators [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Consecrators [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Crimson Talons [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Crimson Talons [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "crux-terminatus-01",
+        "path":  "./wh40k/Imperium/crux-terminatus-01.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Culexus Temple [Imperium, Officio Assassinorum, Assassins]",
+        "path":  "./wh40k/Imperium/Culexus Temple [Imperium, Officio Assassinorum, Assassins].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Cult Mechanicus [Imperium, Adeptus Mechanicus]",
+        "path":  "./wh40k/Imperium/Cult Mechanicus [Imperium, Adeptus Mechanicus].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Dark Angels [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Dark Angels [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Dark Brotherhood [Astartes, Space Marines, Blackshields, Warband]",
+        "path":  "./wh40k/Imperium/Dark Brotherhood [Astartes, Space Marines, Blackshields, Warband].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "dark-angels",
+        "path":  "./wh40k/Imperium/dark-angels.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Death Eagles [Imperium, Adeptus Astartes, Space Marines, Raven Guard, Chapter]",
+        "path":  "./wh40k/Imperium/Death Eagles [Imperium, Adeptus Astartes, Space Marines, Raven Guard, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Death Spectres [Imperium, Adeptus Astartes, Space Marines, Raven Guard, Chapter]",
+        "path":  "./wh40k/Imperium/Death Spectres [Imperium, Adeptus Astartes, Space Marines, Raven Guard, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Death-Company",
+        "path":  "./wh40k/Imperium/Death-Company.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Deathwatch [Imperium, Inquisition, Ordo Xenos, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Deathwatch [Imperium, Inquisition, Ordo Xenos, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Deathwing [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Company]",
+        "path":  "./wh40k/Imperium/Deathwing [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Company].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Deathwolves",
+        "path":  "./wh40k/Imperium/Deathwolves.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Destroyers [Imperium, Adeptus Astartes, Space Marines, White Scars, Chapter]",
+        "path":  "./wh40k/Imperium/Destroyers [Imperium, Adeptus Astartes, Space Marines, White Scars, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Disciples of Caliban [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Disciples of Caliban [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Dragonspears",
+        "path":  "./wh40k/Imperium/Dragonspears.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Dragonspears-2",
+        "path":  "./wh40k/Imperium/Dragonspears-2.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Drakeslayers",
+        "path":  "./wh40k/Imperium/Drakeslayers.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Emperor_s Spears [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter]",
+        "path":  "./wh40k/Imperium/Emperor_s Spears [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Eversor Temple [Imperium, Officio Assassinorum, Assassins]",
+        "path":  "./wh40k/Imperium/Eversor Temple [Imperium, Officio Assassinorum, Assassins].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Executioners [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter]",
+        "path":  "./wh40k/Imperium/Executioners [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Exorcists [Imperium, Adeptus Astartes, Space Marines, Grey Knights, Chapter]",
+        "path":  "./wh40k/Imperium/Exorcists [Imperium, Adeptus Astartes, Space Marines, Grey Knights, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Fire Hawks [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter]",
+        "path":  "./wh40k/Imperium/Fire Hawks [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Flesh Tearers [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Flesh Tearers [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Graia [Imperium, Adeptus Mechanicus, Forge World]",
+        "path":  "./wh40k/Imperium/Graia [Imperium, Adeptus Mechanicus, Forge World].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Grey Knights [Imperium, Inquisition, Ordo Malleus, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Grey Knights [Imperium, Inquisition, Ordo Malleus, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Grimbloods",
+        "path":  "./wh40k/Imperium/Grimbloods.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Guardians of the Covenant [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Guardians of the Covenant [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "High Lords of Terra [Imperium]",
+        "path":  "./wh40k/Imperium/High Lords of Terra [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Imperial Fists [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Imperial Fists [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Imperial Knights [Imperium, Questor Imperialis, Questoris Knights]",
+        "path":  "./wh40k/Imperium/Imperial Knights [Imperium, Questor Imperialis, Questoris Knights].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Imperial Navy [Imperium]",
+        "path":  "./wh40k/Imperium/Imperial Navy [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Imperial Navy 2 [Imperium]",
+        "path":  "./wh40k/Imperium/Imperial Navy 2 [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "imperial-fists",
+        "path":  "./wh40k/Imperium/imperial-fists.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "imperial-lasgun",
+        "path":  "./wh40k/Imperium/imperial-lasgun.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "imperial-lasguns-crossed",
+        "path":  "./wh40k/Imperium/imperial-lasguns-crossed.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Imperium of Man 01 [Imperium, Aquila]",
+        "path":  "./wh40k/Imperium/Imperium of Man 01 [Imperium, Aquila].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Imperium of Man 02 [Imperium, Aquila]",
+        "path":  "./wh40k/Imperium/Imperium of Man 02 [Imperium, Aquila].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Inquisition 1 [Imperium]",
+        "path":  "./wh40k/Imperium/Inquisition 1 [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Inquisition 2 [Imperium]",
+        "path":  "./wh40k/Imperium/Inquisition 2 [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Invictors",
+        "path":  "./wh40k/Imperium/Invictors.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Iron Hands [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Iron Hands [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Iron Knights [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter]",
+        "path":  "./wh40k/Imperium/Iron Knights [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Iron Knights 2 [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter]",
+        "path":  "./wh40k/Imperium/Iron Knights 2 [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Iron Lords [Imperium, Adeptus Astartes, Space Marines, Chapter, Iron Hands]",
+        "path":  "./wh40k/Imperium/Iron Lords [Imperium, Adeptus Astartes, Space Marines, Chapter, Iron Hands].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "ironwolves",
+        "path":  "./wh40k/Imperium/ironwolves.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Kill Team",
+        "path":  "./wh40k/Imperium/Kill Team.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Knights of Blood [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter, Renegades]",
+        "path":  "./wh40k/Imperium/Knights of Blood [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter, Renegades].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Lamenters [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter]",
+        "path":  "./wh40k/Imperium/Lamenters [Imperium, Adeptus Astartes, Space Marines, Blood Angels, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Legio Cybernetica [Imperium, Adeptus Mechanicus]",
+        "path":  "./wh40k/Imperium/Legio Cybernetica [Imperium, Adeptus Mechanicus].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Legio Gryphonicus [Imperium, Adeptus Mechanicus, Collegia Titanica, Adeptus Titanicus]",
+        "path":  "./wh40k/Imperium/Legio Gryphonicus [Imperium, Adeptus Mechanicus, Collegia Titanica, Adeptus Titanicus].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Legion of the Damned [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Legion of the Damned [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "librarian-codicier",
+        "path":  "./wh40k/Imperium/librarian-codicier.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "librarian-epistolary",
+        "path":  "./wh40k/Imperium/librarian-epistolary.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "librarian-lexicanum",
+        "path":  "./wh40k/Imperium/librarian-lexicanum.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "librarius-01",
+        "path":  "./wh40k/Imperium/librarius-01.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "librarius-02",
+        "path":  "./wh40k/Imperium/librarius-02.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Logan-Grimnar",
+        "path":  "./wh40k/Imperium/Logan-Grimnar.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Lucius [Imperium, Adeptus Mechanicus, Forge World]",
+        "path":  "./wh40k/Imperium/Lucius [Imperium, Adeptus Mechanicus, Forge World].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Mars [Imperium, Adeptus Mechanicus, Forge World]",
+        "path":  "./wh40k/Imperium/Mars [Imperium, Adeptus Mechanicus, Forge World].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Metalica [Imperium, Adeptus Mechanicus, Forge World]",
+        "path":  "./wh40k/Imperium/Metalica [Imperium, Adeptus Mechanicus, Forge World].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Militarum-Tempestus-Ordo-Tempestus",
+        "path":  "./wh40k/Imperium/Militarum-Tempestus-Ordo-Tempestus.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Minotaurs [Imperium, Adeptus Astartes, Space Marines, High Lords of Terra, Chapter]",
+        "path":  "./wh40k/Imperium/Minotaurs [Imperium, Adeptus Astartes, Space Marines, High Lords of Terra, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Navis Nobilite [Imperium]",
+        "path":  "./wh40k/Imperium/Navis Nobilite [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Necropolis Hawks [Imperium, Adeptus Astartes, Space Marines, Raven Guard, Chapter]",
+        "path":  "./wh40k/Imperium/Necropolis Hawks [Imperium, Adeptus Astartes, Space Marines, Raven Guard, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Novamarines [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter]",
+        "path":  "./wh40k/Imperium/Novamarines [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Officio Assassinorum [Imperium, Assassins]",
+        "path":  "./wh40k/Imperium/Officio Assassinorum [Imperium, Assassins].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Order of Our Martyred Lady [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order]",
+        "path":  "./wh40k/Imperium/Order of Our Martyred Lady [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Order of the Argent Shroud [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order]",
+        "path":  "./wh40k/Imperium/Order of the Argent Shroud [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Order of the Bloody Rose [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order]",
+        "path":  "./wh40k/Imperium/Order of the Bloody Rose [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Order of the Ebon Chalice [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order]",
+        "path":  "./wh40k/Imperium/Order of the Ebon Chalice [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Order of the Valorous Heart [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order]",
+        "path":  "./wh40k/Imperium/Order of the Valorous Heart [Imperium, Adeptus Ministorum, Ecclesiarchy, Adepta Sororitas , Sisters of Battle, Battle Sisters, Order].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Ordo Malleus [Imperium, Inquisition]",
+        "path":  "./wh40k/Imperium/Ordo Malleus [Imperium, Inquisition].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Ordo Reductor [Imperium, Adeptus Mechanicus]",
+        "path":  "./wh40k/Imperium/Ordo Reductor [Imperium, Adeptus Mechanicus].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Palatine-Aquila",
+        "path":  "./wh40k/Imperium/Palatine-Aquila.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Planetary Governor [Imperium]",
+        "path":  "./wh40k/Imperium/Planetary Governor [Imperium].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Pre-heresy-Dark-Angels",
+        "path":  "./wh40k/Imperium/Pre-heresy-Dark-Angels.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Pre-Heresy-Eye-of-Horus",
+        "path":  "./wh40k/Imperium/Pre-Heresy-Eye-of-Horus.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Pre-Heresy-Iron-Warriors",
+        "path":  "./wh40k/Imperium/Pre-Heresy-Iron-Warriors.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Questor Imperialis [Imperium, Adeptus Terra, Questoris Knights, Imperial Knights]",
+        "path":  "./wh40k/Imperium/Questor Imperialis [Imperium, Adeptus Terra, Questoris Knights, Imperial Knights].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Questor Mechanicus [Imperium, Adeptus Mechanicus, Questoris Knights, Imperial Knights]",
+        "path":  "./wh40k/Imperium/Questor Mechanicus [Imperium, Adeptus Mechanicus, Questoris Knights, Imperial Knights].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Raptor Imperialis [Imperium, Thunder Warriors, Emperor, Gods]",
+        "path":  "./wh40k/Imperium/Raptor Imperialis [Imperium, Thunder Warriors, Emperor, Gods].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Raptors [Imperium, Adeptus Astartes, Space Marines, Raven Guard, Chapter]",
+        "path":  "./wh40k/Imperium/Raptors [Imperium, Adeptus Astartes, Space Marines, Raven Guard, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Raven Guard [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Raven Guard [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Ravenwing [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Company]",
+        "path":  "./wh40k/Imperium/Ravenwing [Imperium, Adeptus Astartes, Space Marines, Dark Angels, Company].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Reclusiam [Imperium, Adeptus Astartes, Space Marines, Fortification]",
+        "path":  "./wh40k/Imperium/Reclusiam [Imperium, Adeptus Astartes, Space Marines, Fortification].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Red Scorpions [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Red Scorpions [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Red-Moons",
+        "path":  "./wh40k/Imperium/Red-Moons.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Retributors",
+        "path":  "./wh40k/Imperium/Retributors.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Rogue Traders [Imperium, Astra Cartographica]",
+        "path":  "./wh40k/Imperium/Rogue Traders [Imperium, Astra Cartographica].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Ryza [Imperium, Adeptus Mechanicus, Forge World]",
+        "path":  "./wh40k/Imperium/Ryza [Imperium, Adeptus Mechanicus, Forge World].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Salamanders [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Salamanders [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Silver Skulls [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter]",
+        "path":  "./wh40k/Imperium/Silver Skulls [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Silver Templars [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter]",
+        "path":  "./wh40k/Imperium/Silver Templars [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Sisters of Silence [Imperium, Adeptus Astra Telepathica, Talons of the Emperor]",
+        "path":  "./wh40k/Imperium/Sisters of Silence [Imperium, Adeptus Astra Telepathica, Talons of the Emperor].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "sisters-of-battle",
+        "path":  "./wh40k/Imperium/sisters-of-battle.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Skitarii [Imperium, Adeptus Mechanicus]",
+        "path":  "./wh40k/Imperium/Skitarii [Imperium, Adeptus Mechanicus].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "skull-laurals",
+        "path":  "./wh40k/Imperium/skull-laurals.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Solar Auxilia [Imperium,Great Crusade,Imperial Guard]",
+        "path":  "./wh40k/Imperium/Solar Auxilia [Imperium,Great Crusade,Imperial Guard].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Sons of Medusa [Imperium, Adeptus Astartes, Space Marines, Chapter, Iron Hands]",
+        "path":  "./wh40k/Imperium/Sons of Medusa [Imperium, Adeptus Astartes, Space Marines, Chapter, Iron Hands].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Sons of Medusa 2 [Imperium, Adeptus Astartes, Space Marines, Chapter, Iron Hands]",
+        "path":  "./wh40k/Imperium/Sons of Medusa 2 [Imperium, Adeptus Astartes, Space Marines, Chapter, Iron Hands].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Sons of the Phoenix [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter]",
+        "path":  "./wh40k/Imperium/Sons of the Phoenix [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Sons-of-Morkai",
+        "path":  "./wh40k/Imperium/Sons-of-Morkai.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Soul Drinkers [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter]",
+        "path":  "./wh40k/Imperium/Soul Drinkers [Imperium, Adeptus Astartes, Space Marines, Imperial Fists, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Space Wolves [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Space Wolves [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Star Dragons [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Star Dragons [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Star Phantoms [Imperium, Adeptus Astartes, Space Marines, Chapter]",
+        "path":  "./wh40k/Imperium/Star Phantoms [Imperium, Adeptus Astartes, Space Marines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Steel Confessors [Imperium, Adeptus Astartes, Adeptus Mechanicus, Space Marines, Iron Hands, Chapter]",
+        "path":  "./wh40k/Imperium/Steel Confessors [Imperium, Adeptus Astartes, Adeptus Mechanicus, Space Marines, Iron Hands, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Steel-Legion",
+        "path":  "./wh40k/Imperium/Steel-Legion.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Stormwolves",
+        "path":  "./wh40k/Imperium/Stormwolves.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Stygies VIII [Imperium, Adeptus Mechanicus, Forge World]",
+        "path":  "./wh40k/Imperium/Stygies VIII [Imperium, Adeptus Mechanicus, Forge World].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Talons of the Emperor [Imperium, Adeptus Custodes, Sisters of Silence]",
+        "path":  "./wh40k/Imperium/Talons of the Emperor [Imperium, Adeptus Custodes, Sisters of Silence].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "tanith",
+        "path":  "./wh40k/Imperium/tanith.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Temple-Cullexus",
+        "path":  "./wh40k/Imperium/Temple-Cullexus.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Temple-Eversor",
+        "path":  "./wh40k/Imperium/Temple-Eversor.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "The-Sea-Wolf",
+        "path":  "./wh40k/Imperium/The-Sea-Wolf.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "The-Wolf-that-Stalks-Between-the-Stars",
+        "path":  "./wh40k/Imperium/The-Wolf-that-Stalks-Between-the-Stars.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Third Covenent [Astartes, Space Marines, Blackshields, Warband]",
+        "path":  "./wh40k/Imperium/Third Covenent [Astartes, Space Marines, Blackshields, Warband].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Thousand-Sons-PreHeresy",
+        "path":  "./wh40k/Imperium/Thousand-Sons-PreHeresy.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Tome-Keepers",
+        "path":  "./wh40k/Imperium/Tome-Keepers.svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Ultramarines [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/Ultramarines [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Vindicare Temple [Imperium, Officio Assassinorum, Assassins]",
+        "path":  "./wh40k/Imperium/Vindicare Temple [Imperium, Officio Assassinorum, Assassins].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "Void Tridents [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter]",
+        "path":  "./wh40k/Imperium/Void Tridents [Imperium, Adeptus Astartes, Space Marines, Ultramarines, Chapter].svg"
+    },
+    {
+        "category":  "Imperium",
+        "name":  "White Scars [Imperium, Adeptus Astartes, Space Marines, Legion]",
+        "path":  "./wh40k/Imperium/White Scars [Imperium, Adeptus Astartes, Space Marines, Legion].svg"
+    },
+    {
+        "category":  "Xenos",
+        "name":  "Blackstone Fortress [Old Ones, Talisman of Vaul, Vaul, Gods]",
+        "path":  "./wh40k/Xenos/Blackstone Fortress [Old Ones, Talisman of Vaul, Vaul, Gods].svg"
+    },
+    {
+        "category":  "Xenos",
+        "name":  "Hrud",
+        "path":  "./wh40k/Xenos/Hrud.svg"
+    },
+    {
+        "category":  "Xenos",
+        "name":  "Jokaero [Slanni, Inquisition]",
+        "path":  "./wh40k/Xenos/Jokaero [Slanni, Inquisition].svg"
+    },
+    {
+        "category":  "Xenos",
+        "name":  "Xenos",
+        "path":  "./wh40k/Xenos/Xenos.svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Aeldari [Eldar, Eye of Asuryan, Gods]",
+        "path":  "./wh40k/Xenos/Aeldari/Aeldari [Eldar, Eye of Asuryan, Gods].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Alaitoc [Aeldari, Eldar, Asuryani, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Alaitoc [Aeldari, Eldar, Asuryani, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Altansar [Aeldari, Eldar, Asuryani, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Altansar [Aeldari, Eldar, Asuryani, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Asuryani [Aeldari, Eldar, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Asuryani [Aeldari, Eldar, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Avatar of Khaine [Aeldari, Eldar, Gods]",
+        "path":  "./wh40k/Xenos/Aeldari/Avatar of Khaine [Aeldari, Eldar, Gods].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Biel-Tan [Aeldari, Eldar, Asuryani, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Biel-Tan [Aeldari, Eldar, Asuryani, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Cult of Strife [Aeldari, Drukhari, Dark Eldar, Wych Cult, Hekatarii]",
+        "path":  "./wh40k/Xenos/Aeldari/Cult of Strife [Aeldari, Drukhari, Dark Eldar, Wych Cult, Hekatarii].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Dire Avengers [Aeldari, Eldar, Asuryani, Craftworlds, Aspect Warriors]",
+        "path":  "./wh40k/Xenos/Aeldari/Dire Avengers [Aeldari, Eldar, Asuryani, Craftworlds, Aspect Warriors].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Drukhari 1 [Aeldari, Dark Eldar]",
+        "path":  "./wh40k/Xenos/Aeldari/Drukhari 1 [Aeldari, Dark Eldar].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Drukhari 2 [Aeldari, Dark Eldar]",
+        "path":  "./wh40k/Xenos/Aeldari/Drukhari 2 [Aeldari, Dark Eldar].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Drukhari 3 [Aeldari, Dark Eldar, Soul Drinkers]",
+        "path":  "./wh40k/Xenos/Aeldari/Drukhari 3 [Aeldari, Dark Eldar, Soul Drinkers].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Drukhari 4 [Aeldari, Dark Eldar, Soul Drinkers]",
+        "path":  "./wh40k/Xenos/Aeldari/Drukhari 4 [Aeldari, Dark Eldar, Soul Drinkers].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Exodites [Aeldari, Eldar]",
+        "path":  "./wh40k/Xenos/Aeldari/Exodites [Aeldari, Eldar].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Fire Dragons [Aeldari, Eldar, Asuryani, Craftworlds, Aspect Warriors]",
+        "path":  "./wh40k/Xenos/Aeldari/Fire Dragons [Aeldari, Eldar, Asuryani, Craftworlds, Aspect Warriors].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Guardians [Aeldari, Eldar, Asuryani, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Guardians [Aeldari, Eldar, Asuryani, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Harlequin-Masque-of-the-Veiled-Path",
+        "path":  "./wh40k/Xenos/Aeldari/Harlequin-Masque-of-the-Veiled-Path.svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Harlequins [Aeldari, Eldar, Rillietann]",
+        "path":  "./wh40k/Xenos/Aeldari/Harlequins [Aeldari, Eldar, Rillietann].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Howling Banshees [Aeldari, Eldar, Asuryani, Craftworlds, Aspect Warriors]",
+        "path":  "./wh40k/Xenos/Aeldari/Howling Banshees [Aeldari, Eldar, Asuryani, Craftworlds, Aspect Warriors].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Iyanden [Aeldari, Eldar, Asuryani, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Iyanden [Aeldari, Eldar, Asuryani, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Kabal of the Black Heart [Aeldari, Drukhari, Dark Eldar, Kabal]",
+        "path":  "./wh40k/Xenos/Aeldari/Kabal of the Black Heart [Aeldari, Drukhari, Dark Eldar, Kabal].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Kabal of the Flayed Skull [Aeldari, Drukhari, Dark Eldar, Kabal]",
+        "path":  "./wh40k/Xenos/Aeldari/Kabal of the Flayed Skull [Aeldari, Drukhari, Dark Eldar, Kabal].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Morai-Heg [Aeldari, Eldar, Gods]",
+        "path":  "./wh40k/Xenos/Aeldari/Morai-Heg [Aeldari, Eldar, Gods].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Mymeara [Aeldari, Eldar, Asuryani, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Mymeara [Aeldari, Eldar, Asuryani, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Outcasts [Aeldari, Eldar, Eshairr, Rangers]",
+        "path":  "./wh40k/Xenos/Aeldari/Outcasts [Aeldari, Eldar, Eshairr, Rangers].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Prophets of Flesh [Aeldari, Drukhari, Dark Eldar, Haemonculus Covens]",
+        "path":  "./wh40k/Xenos/Aeldari/Prophets of Flesh [Aeldari, Drukhari, Dark Eldar, Haemonculus Covens].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Saim-Hann [Aeldari, Eldar, Asuryani, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Saim-Hann [Aeldari, Eldar, Asuryani, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Ulthwe [Aeldari, Eldar, Asuryani, Craftworlds]",
+        "path":  "./wh40k/Xenos/Aeldari/Ulthwe [Aeldari, Eldar, Asuryani, Craftworlds].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Warp Spiders [Aeldari, Eldar, Asuryani, Craftworlds, Aspect Warriors]",
+        "path":  "./wh40k/Xenos/Aeldari/Warp Spiders [Aeldari, Eldar, Asuryani, Craftworlds, Aspect Warriors].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Webway [Aeldari, Eldar]",
+        "path":  "./wh40k/Xenos/Aeldari/Webway [Aeldari, Eldar].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Ynnari [Aeldari, Eldar]",
+        "path":  "./wh40k/Xenos/Aeldari/Ynnari [Aeldari, Eldar].svg"
+    },
+    {
+        "category":  "Xenos / Aeldari",
+        "name":  "Ynnead [Aeldari, Eldar, Gods]",
+        "path":  "./wh40k/Xenos/Aeldari/Ynnead [Aeldari, Eldar, Gods].svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Cult of Strife [Aeldari, Drukhari, Dark Eldar, Wych Cult, Hekatarii]",
+        "path":  "./wh40k/Xenos/Druhkari/Cult of Strife [Aeldari, Drukhari, Dark Eldar, Wych Cult, Hekatarii].svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Dark-Eldar",
+        "path":  "./wh40k/Xenos/Druhkari/Dark-Eldar.svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Drukhari 1 [Aeldari, Dark Eldar]",
+        "path":  "./wh40k/Xenos/Druhkari/Drukhari 1 [Aeldari, Dark Eldar].svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Drukhari 2 [Aeldari, Dark Eldar]",
+        "path":  "./wh40k/Xenos/Druhkari/Drukhari 2 [Aeldari, Dark Eldar].svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Drukhari 3 [Aeldari, Dark Eldar, Soul Drinkers]",
+        "path":  "./wh40k/Xenos/Druhkari/Drukhari 3 [Aeldari, Dark Eldar, Soul Drinkers].svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Drukhari 4 [Aeldari, Dark Eldar, Soul Drinkers]",
+        "path":  "./wh40k/Xenos/Druhkari/Drukhari 4 [Aeldari, Dark Eldar, Soul Drinkers].svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Kabal of the Black Heart [Aeldari, Drukhari, Dark Eldar, Kabal]",
+        "path":  "./wh40k/Xenos/Druhkari/Kabal of the Black Heart [Aeldari, Drukhari, Dark Eldar, Kabal].svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Kabal of the Flayed Skull [Aeldari, Drukhari, Dark Eldar, Kabal]",
+        "path":  "./wh40k/Xenos/Druhkari/Kabal of the Flayed Skull [Aeldari, Drukhari, Dark Eldar, Kabal].svg"
+    },
+    {
+        "category":  "Xenos / Druhkari",
+        "name":  "Prophets of Flesh [Aeldari, Drukhari, Dark Eldar, Haemonculus Covens]",
+        "path":  "./wh40k/Xenos/Druhkari/Prophets of Flesh [Aeldari, Drukhari, Dark Eldar, Haemonculus Covens].svg"
+    },
+    {
+        "category":  "Xenos / Genestealer Cult",
+        "name":  "Bladed Cog [Hive Mind, Tyranids, Genestealer Cults, Genestealers]",
+        "path":  "./wh40k/Xenos/Genestealer Cult/Bladed Cog [Hive Mind, Tyranids, Genestealer Cults, Genestealers].svg"
+    },
+    {
+        "category":  "Xenos / Genestealer Cult",
+        "name":  "Four-Armed Emperor [Hive Mind, Tyranids, Genestealer Cults, Genestealers]",
+        "path":  "./wh40k/Xenos/Genestealer Cult/Four-Armed Emperor [Hive Mind, Tyranids, Genestealer Cults, Genestealers].svg"
+    },
+    {
+        "category":  "Xenos / Genestealer Cult",
+        "name":  "Genestealer Cults [Hive Mind, Tyranids, Genestealers]",
+        "path":  "./wh40k/Xenos/Genestealer Cult/Genestealer Cults [Hive Mind, Tyranids, Genestealers].svg"
+    },
+    {
+        "category":  "Xenos / Genestealer Cult",
+        "name":  "Hivecult [Hive Mind, Tyranids, Genestealer Cults, Genestealers]",
+        "path":  "./wh40k/Xenos/Genestealer Cult/Hivecult [Hive Mind, Tyranids, Genestealer Cults, Genestealers].svg"
+    },
+    {
+        "category":  "Xenos / Genestealer Cult",
+        "name":  "Pauper Princes [Hive Mind, Tyranids, Genestealer Cults, Genestealers]",
+        "path":  "./wh40k/Xenos/Genestealer Cult/Pauper Princes [Hive Mind, Tyranids, Genestealer Cults, Genestealers].svg"
+    },
+    {
+        "category":  "Xenos / Genestealer Cult",
+        "name":  "Rusted Claw [Hive Mind, Tyranids, Genestealer Cults, Genestealers]",
+        "path":  "./wh40k/Xenos/Genestealer Cult/Rusted Claw [Hive Mind, Tyranids, Genestealer Cults, Genestealers].svg"
+    },
+    {
+        "category":  "Xenos / Genestealer Cult",
+        "name":  "Twisted Helix [Hive Mind, Tyranids, Genestealer Cults, Genestealers]",
+        "path":  "./wh40k/Xenos/Genestealer Cult/Twisted Helix [Hive Mind, Tyranids, Genestealer Cults, Genestealers].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "C_tan [Yngir, Star Gods]",
+        "path":  "./wh40k/Xenos/Necrons/C_tan [Yngir, Star Gods].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Mephrit [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Mephrit [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Mephrit Dark [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Mephrit Dark [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-lord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-lord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-lord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-lord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-lord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-lord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-lord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-lord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-overlord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-overlord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-overlord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-overlord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-overlord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-overlord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-overlord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-overlord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-phalanx-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-phalanx-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-phalanx-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-phalanx-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-phalanx-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-phalanx-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "mephrit-phalanx-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/mephrit-phalanx-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Necrons [Yngir, Necrontyr]",
+        "path":  "./wh40k/Xenos/Necrons/Necrons [Yngir, Necrontyr].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Necrons Dark [Yngir, Necrontyr]",
+        "path":  "./wh40k/Xenos/Necrons/Necrons Dark [Yngir, Necrontyr].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "necrons-dark",
+        "path":  "./wh40k/Xenos/Necrons/necrons-dark.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Nephrekh [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Nephrekh [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Nephrekh Dark [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Nephrekh Dark [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-lord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-lord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-lord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-lord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-lord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-lord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-lord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-lord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-overlord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-overlord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-overlord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-overlord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-overlord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-overlord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-overlord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-overlord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-phalanx-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-phalanx-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-phalanx-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-phalanx-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-phalanx-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-phalanx-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nephrekh-phalanx-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/nephrekh-phalanx-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Nihilakh [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Nihilakh [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Nihilakh Dark [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Nihilakh Dark [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-lord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-lord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-lord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-lord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-lord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-lord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-lord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-lord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-overlord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-overlord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-overlord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-overlord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-overlord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-overlord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-overlord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-overlord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-phalanx-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-phalanx-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-phalanx-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-phalanx-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-phalanx-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-phalanx-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "nihilakh-phalanx-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/nihilakh-phalanx-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Novokh [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Novokh [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Novokh Dark [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Novokh Dark [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-lord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/novokh-lord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-lord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/novokh-lord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-lord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/novokh-lord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-lord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/novokh-lord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-overlord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/novokh-overlord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-overlord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/novokh-overlord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-overlord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/novokh-overlord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-overlord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/novokh-overlord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-phalanx-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/novokh-phalanx-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-phalanx-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/novokh-phalanx-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-phalanx-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/novokh-phalanx-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "novokh-phalanx-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/novokh-phalanx-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Sautekh [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Sautekh [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Sautekh Dark [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Sautekh Dark [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "sautekh-lord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/sautekh-lord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "sautekh-lord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/sautekh-lord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "sautekh-lord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/sautekh-lord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "sautekh-lord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/sautekh-lord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "sautekh-overlord-glyphs-1",
+        "path":  "./wh40k/Xenos/Necrons/sautekh-overlord-glyphs-1.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "sautekh-overlord-glyphs-2",
+        "path":  "./wh40k/Xenos/Necrons/sautekh-overlord-glyphs-2.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "sautekh-overlord-glyphs-3",
+        "path":  "./wh40k/Xenos/Necrons/sautekh-overlord-glyphs-3.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "sautekh-overlord-glyphs-4",
+        "path":  "./wh40k/Xenos/Necrons/sautekh-overlord-glyphs-4.svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Szarekhan [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Szarekhan [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Necrons",
+        "name":  "Szarekhan Dark [Yngir, Necrontyr, Necrons, Dynasty]",
+        "path":  "./wh40k/Xenos/Necrons/Szarekhan Dark [Yngir, Necrontyr, Necrons, Dynasty].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Bad Moons [Orkoids, Orks, Clan]",
+        "path":  "./wh40k/Xenos/Orks/Bad Moons [Orkoids, Orks, Clan].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Bad Moons 2 [Orkoids, Orks, Clan]",
+        "path":  "./wh40k/Xenos/Orks/Bad Moons 2 [Orkoids, Orks, Clan].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Blood Axes [Orkoids, Orks, Clan] - Copy",
+        "path":  "./wh40k/Xenos/Orks/Blood Axes [Orkoids, Orks, Clan] - Copy.svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Deathskulls [Orkoids, Orks, Clan]",
+        "path":  "./wh40k/Xenos/Orks/Deathskulls [Orkoids, Orks, Clan].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Evil Sunz [Orkoids, Orks, Clan]",
+        "path":  "./wh40k/Xenos/Orks/Evil Sunz [Orkoids, Orks, Clan].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Goffs [Orkoids, Orks, Clan]",
+        "path":  "./wh40k/Xenos/Orks/Goffs [Orkoids, Orks, Clan].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Gorkamorka [Orkoids, Orks, Gork, Mork, Gods]",
+        "path":  "./wh40k/Xenos/Orks/Gorkamorka [Orkoids, Orks, Gork, Mork, Gods].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Gretchin [Orkoids, Grotz]",
+        "path":  "./wh40k/Xenos/Orks/Gretchin [Orkoids, Grotz].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Orks [Orkoids]",
+        "path":  "./wh40k/Xenos/Orks/Orks [Orkoids].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Snakebites [Orkoids, Orks, Clan]",
+        "path":  "./wh40k/Xenos/Orks/Snakebites [Orkoids, Orks, Clan].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Snotlings [Orkoids]",
+        "path":  "./wh40k/Xenos/Orks/Snotlings [Orkoids].svg"
+    },
+    {
+        "category":  "Xenos / Orks",
+        "name":  "Squigs [Orkoids]",
+        "path":  "./wh40k/Xenos/Orks/Squigs [Orkoids].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Air Caste [T_au_va, Greater Good, T_au Empire, Caste]",
+        "path":  "./wh40k/Xenos/Tau/Air Caste [T_au_va, Greater Good, T_au Empire, Caste].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Au’taal [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Au’taal [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Bork’an [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Bork’an [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "D’yanoi [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/D’yanoi [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "dalyth",
+        "path":  "./wh40k/Xenos/Tau/dalyth.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Earth Caste [T_au_va, Greater Good, T_au Empire, Caste]",
+        "path":  "./wh40k/Xenos/Tau/Earth Caste [T_au_va, Greater Good, T_au Empire, Caste].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Elsy’eir [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Elsy’eir [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Ethereal Caste [T_au_va, Greater Good, T_au Empire, Caste]",
+        "path":  "./wh40k/Xenos/Tau/Ethereal Caste [T_au_va, Greater Good, T_au Empire, Caste].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Fal’shia [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Fal’shia [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Farsight Enclaves [T_au_va, Greater Good, T_au, Renegades]",
+        "path":  "./wh40k/Xenos/Tau/Farsight Enclaves [T_au_va, Greater Good, T_au, Renegades].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Fe’saan [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Fe’saan [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Fi’rios [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Fi’rios [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Fire Caste [T_au_va, Greater Good, T_au Empire, Caste]",
+        "path":  "./wh40k/Xenos/Tau/Fire Caste [T_au_va, Greater Good, T_au Empire, Caste].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Ke’lshan [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Ke’lshan [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Kor’tal [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Kor’tal [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Kroot [T_au_va, Greater Good, T_au Empire, Auxillaries]",
+        "path":  "./wh40k/Xenos/Tau/Kroot [T_au_va, Greater Good, T_au Empire, Auxillaries].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Ksi’m’yen [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Ksi’m’yen [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Mu’gulath [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Mu’gulath [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "N’dras [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/N’dras [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Sa’cea [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Sa’cea [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T_au [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/T_au [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au Number 0 [T_au_va, Greater Good]",
+        "path":  "./wh40k/Xenos/Tau/T’au Number 0 [T_au_va, Greater Good].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au Number 1 [T_au_va, Greater Good]",
+        "path":  "./wh40k/Xenos/Tau/T’au Number 1 [T_au_va, Greater Good].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au Number 2 [T_au_va, Greater Good]",
+        "path":  "./wh40k/Xenos/Tau/T’au Number 2 [T_au_va, Greater Good].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au Number 3 [T_au_va, Greater Good]",
+        "path":  "./wh40k/Xenos/Tau/T’au Number 3 [T_au_va, Greater Good].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au Number 4 [T_au_va, Greater Good]",
+        "path":  "./wh40k/Xenos/Tau/T’au Number 4 [T_au_va, Greater Good].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au Number 5 [T_au_va, Greater Good]",
+        "path":  "./wh40k/Xenos/Tau/T’au Number 5 [T_au_va, Greater Good].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au Number 6 [T_au_va, Greater Good]",
+        "path":  "./wh40k/Xenos/Tau/T’au Number 6 [T_au_va, Greater Good].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au Number 7 [T_au_va, Greater Good]",
+        "path":  "./wh40k/Xenos/Tau/T’au Number 7 [T_au_va, Greater Good].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’au’n [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/T’au’n [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "T’olku [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/T’olku [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Tash_var [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Tash_var [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tashvar",
+        "path":  "./wh40k/Xenos/Tau/tashvar.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau",
+        "path":  "./wh40k/Xenos/Tau/tau.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau-num0",
+        "path":  "./wh40k/Xenos/Tau/tau-num0.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau-num1",
+        "path":  "./wh40k/Xenos/Tau/tau-num1.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau-num2",
+        "path":  "./wh40k/Xenos/Tau/tau-num2.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau-num3",
+        "path":  "./wh40k/Xenos/Tau/tau-num3.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau-num4",
+        "path":  "./wh40k/Xenos/Tau/tau-num4.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau-num5",
+        "path":  "./wh40k/Xenos/Tau/tau-num5.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau-num6",
+        "path":  "./wh40k/Xenos/Tau/tau-num6.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "tau-num7",
+        "path":  "./wh40k/Xenos/Tau/tau-num7.svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Vash’ya [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Vash’ya [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Vior’la [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Vior’la [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Water Caste [T_au_va, Greater Good, T_au Empire, Caste]",
+        "path":  "./wh40k/Xenos/Tau/Water Caste [T_au_va, Greater Good, T_au Empire, Caste].svg"
+    },
+    {
+        "category":  "Xenos / Tau",
+        "name":  "Yo’vai [T_au_va, Greater Good, T_au Empire, Sept]",
+        "path":  "./wh40k/Xenos/Tau/Yo’vai [T_au_va, Greater Good, T_au Empire, Sept].svg"
+    },
+    {
+        "category":  "Xenos / Tyranid",
+        "name":  "Tyranids [Hive Mind, Hive Fleets]",
+        "path":  "./wh40k/Xenos/Tyranid/Tyranids [Hive Mind, Hive Fleets].svg"
+    }
+]

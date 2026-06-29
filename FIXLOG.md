@@ -57,6 +57,7 @@ emit` when running `tsc -b`.
 ## 2026-06-29 — Phase 3 (banner, emblems, Cyrillic)
 
 ### 7. Cyrillic litany text rendered as boxes / fell back to a default font
+
 - **Symptom:** The reference uses Russian (Cyrillic) gothic text, but the bundled
   display fonts (Cinzel, UnifrakturMaguntia, …) have no Cyrillic glyphs, so the
   text either fell back to a serif or showed tofu.
