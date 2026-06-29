@@ -34,9 +34,9 @@ export function applyBW(ctx: CanvasRenderingContext2D, bw: BWState, box: Box) {
   }
   const px = data.data;
   // 4x4 Bayer matrix for optional ordered dithering.
-  const bayer = [
-    0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5,
-  ].map((v) => (v / 16) * 255);
+  const bayer = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map(
+    (v) => (v / 16) * 255
+  );
 
   for (let row = 0; row < h; row++) {
     for (let col = 0; col < w; col++) {
@@ -112,7 +112,12 @@ function drawImageLayer(ctx: CanvasRenderingContext2D, layer: ImageLayer) {
   if (layer.bw) {
     applyBW(
       ctx,
-      { enabled: true, threshold: layer.threshold, invert: layer.invert, dither: false },
+      {
+        enabled: true,
+        threshold: layer.threshold,
+        invert: layer.invert,
+        dither: false,
+      },
       imageLayerBox(layer)
     );
   }
@@ -166,8 +171,8 @@ export function measureTextBox(
     layer.align === "center"
       ? layer.x - w / 2
       : layer.align === "right"
-      ? layer.x - w
-      : layer.x;
+        ? layer.x - w
+        : layer.x;
   return { x, y: layer.y, w: Math.max(w, 1), h: Math.max(h, lineH) };
 }
 

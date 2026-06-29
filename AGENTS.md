@@ -25,10 +25,15 @@ src/
     render.ts               # scene drawing, B/W threshold, text wrapping
     exportImage.ts          # PNG/JPEG/WebP + 1-bit BMP encoder
     importDoc.ts            # .txt / .docx import (mammoth)
+    customLibrary.ts        # user dictionary in localStorage + JSON import/export
+    project.ts              # save/load whole project + autosave
+    presets.ts              # one-click layout presets
   components/
-    CanvasStage.tsx         # interactive canvas (select/move/resize)
+    CanvasStage.tsx         # interactive canvas (select/move/resize/crop/snap)
     ui.tsx                  # small reusable controls
+eslint.config.js            # flat ESLint config (eslint 9 + typescript-eslint)
 .github/workflows/deploy.yml
+.github/workflows/ci.yml    # typecheck + lint + prettier + build
 ```
 
 ## Core concepts
@@ -36,10 +41,10 @@ src/
 - **Single source of truth**: `EditorState` (layers, background, frame, bw,
   canvasBg, selectedId). Rendering is a pure function of this state.
 - **Rendering**: `drawScene(ctx, state, { includeFrame })` paints background →
-  image layers → global B/W pass → text → frame. Text is drawn *after* the B/W
+  image layers → global B/W pass → text → frame. Text is drawn _after_ the B/W
   pass so it stays crisp 1-bit.
 - **History**: `useHistory` keeps `past/present/future`. Use `set(updater,
-  "commit")` for discrete edits and `set(updater, "replace")` during continuous
+"commit")` for discrete edits and `set(updater, "replace")` during continuous
   gestures (slider drag, canvas drag). A gesture should `commit` on its first
   change and `replace` afterwards, producing one undo entry per gesture.
 - **Selection coordinates**: the canvas is logical 1024² and CSS-scaled.

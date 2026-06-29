@@ -3,13 +3,16 @@ import { drawScene } from "./render";
 
 export type ExportFormat = "png" | "jpeg" | "webp" | "bmp1";
 
-export const EXPORT_FORMATS: { id: ExportFormat; label: string; ext: string }[] =
-  [
-    { id: "png", label: "PNG", ext: "png" },
-    { id: "jpeg", label: "JPEG", ext: "jpg" },
-    { id: "webp", label: "WebP", ext: "webp" },
-    { id: "bmp1", label: "BMP (1-bit B/W)", ext: "bmp" },
-  ];
+export const EXPORT_FORMATS: {
+  id: ExportFormat;
+  label: string;
+  ext: string;
+}[] = [
+  { id: "png", label: "PNG", ext: "png" },
+  { id: "jpeg", label: "JPEG", ext: "jpg" },
+  { id: "webp", label: "WebP", ext: "webp" },
+  { id: "bmp1", label: "BMP (1-bit B/W)", ext: "bmp" },
+];
 
 export function renderToCanvas(state: EditorState): HTMLCanvasElement {
   const canvas = document.createElement("canvas");
@@ -52,28 +55,44 @@ function encodeBmp1(canvas: HTMLCanvasElement): Blob {
   // BITMAPFILEHEADER
   dv.setUint8(o++, 0x42);
   dv.setUint8(o++, 0x4d);
-  dv.setUint32(o, fileSize, true); o += 4;
-  dv.setUint32(o, 0, true); o += 4;
-  dv.setUint32(o, headerSize, true); o += 4;
+  dv.setUint32(o, fileSize, true);
+  o += 4;
+  dv.setUint32(o, 0, true);
+  o += 4;
+  dv.setUint32(o, headerSize, true);
+  o += 4;
   // BITMAPINFOHEADER
-  dv.setUint32(o, 40, true); o += 4;
-  dv.setInt32(o, width, true); o += 4;
-  dv.setInt32(o, height, true); o += 4; // positive => bottom-up
-  dv.setUint16(o, 1, true); o += 2;
-  dv.setUint16(o, 1, true); o += 2; // 1 bit/pixel
-  dv.setUint32(o, 0, true); o += 4;
-  dv.setUint32(o, pixelArraySize, true); o += 4;
-  dv.setInt32(o, 2835, true); o += 4;
-  dv.setInt32(o, 2835, true); o += 4;
-  dv.setUint32(o, 2, true); o += 4;
-  dv.setUint32(o, 0, true); o += 4;
+  dv.setUint32(o, 40, true);
+  o += 4;
+  dv.setInt32(o, width, true);
+  o += 4;
+  dv.setInt32(o, height, true);
+  o += 4; // positive => bottom-up
+  dv.setUint16(o, 1, true);
+  o += 2;
+  dv.setUint16(o, 1, true);
+  o += 2; // 1 bit/pixel
+  dv.setUint32(o, 0, true);
+  o += 4;
+  dv.setUint32(o, pixelArraySize, true);
+  o += 4;
+  dv.setInt32(o, 2835, true);
+  o += 4;
+  dv.setInt32(o, 2835, true);
+  o += 4;
+  dv.setUint32(o, 2, true);
+  o += 4;
+  dv.setUint32(o, 0, true);
+  o += 4;
   // palette: index 0 = black, index 1 = white
-  dv.setUint32(o, 0x00000000, true); o += 4;
-  dv.setUint32(o, 0x00ffffff, true); o += 4;
+  dv.setUint32(o, 0x00000000, true);
+  o += 4;
+  dv.setUint32(o, 0x00ffffff, true);
+  o += 4;
 
   for (let y = 0; y < height; y++) {
     const srcY = height - 1 - y; // BMP rows are bottom-up
-    let rowStart = o + y * rowPadded;
+    const rowStart = o + y * rowPadded;
     for (let x = 0; x < width; x++) {
       const i = (srcY * width + x) * 4;
       const lum = 0.299 * img[i] + 0.587 * img[i + 1] + 0.114 * img[i + 2];

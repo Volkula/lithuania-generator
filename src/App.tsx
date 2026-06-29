@@ -11,7 +11,7 @@ import {
 import { useHistory } from "./hooks/useHistory";
 import CanvasStage from "./components/CanvasStage";
 import { Field, NumberInput, Section, Slider, Toggle } from "./components/ui";
-import { CATEGORIES, LITANIES } from "./data/litanies";
+import { Litany, LITANIES } from "./data/litanies";
 import { importFile } from "./lib/importDoc";
 import {
   EXPORT_FORMATS,
@@ -20,15 +20,35 @@ import {
   exportImage,
 } from "./lib/exportImage";
 import { clearFailure, getImage, hasFailed } from "./lib/images";
+import {
+  exportCustomJson,
+  loadCustom,
+  makeCustomLitany,
+  parseImportedJson,
+  saveCustom,
+} from "./lib/customLibrary";
+import {
+  loadAutosave,
+  parseProject,
+  saveAutosave,
+  serializeProject,
+} from "./lib/project";
+import { PRESETS } from "./lib/presets";
 
 type Tab = "library" | "text" | "image" | "canvas" | "export";
 
 const FONTS = [
   "Cinzel, serif",
+  "'Cinzel Decorative', serif",
   "'IM Fell English', serif",
+  "'EB Garamond', serif",
+  "'UnifrakturMaguntia', cursive",
+  "'MedievalSharp', cursive",
+  "'Pirata One', cursive",
+  "'Marcellus SC', serif",
+  "'Metamorphous', serif",
   "Georgia, serif",
   "'Times New Roman', serif",
-  "Garamond, serif",
   "Arial, sans-serif",
   "'Courier New', monospace",
 ];
@@ -56,40 +76,99 @@ function loadDimensions(src: string): Promise<{ w: number; h: number }> {
 }
 
 export default function App() {
+  const [initialState] = useState<EditorState>(
+    () => loadAutosave() ?? createInitialState()
+  );
   const { state, set, undo, redo, reset, canUndo, canRedo } =
-    useHistory<EditorState>(createInitialState());
+    useHistory<EditorState>(initialState);
   const [tab, setTab] = useState<Tab>("library");
   const [category, setCategory] = useState<string>("All");
   const [search, setSearch] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [exportFormat, setExportFormat] = useState<ExportFormat>("png");
   const [status, setStatus] = useState<string>("");
+  const [cropMode, setCropMode] = useState(false);
+
+  // Custom litany dictionary, persisted to localStorage.
+  const [custom, setCustom] = useState<Litany[]>(() => loadCustom());
+  const [draftTitle, setDraftTitle] = useState("");
+  const [draftCategory, setDraftCategory] = useState("Custom");
+  const [draftText, setDraftText] = useState("");
+
+  useEffect(() => {
+    saveCustom(custom);
+  }, [custom]);
+
+  // Debounced autosave of the whole project so reloads keep your work.
+  useEffect(() => {
+    const t = setTimeout(() => saveAutosave(state), 400);
+    return () => clearTimeout(t);
+  }, [state]);
+
+  const allLitanies = useMemo(
+    () =>
+      [...LITANIES, ...custom].sort((a, b) => a.title.localeCompare(b.title)),
+    [custom]
+  );
+  const allCategories = useMemo(
+    () =>
+      Array.from(new Set(allLitanies.map((l) => l.category))).sort((a, b) =>
+        a.localeCompare(b)
+      ),
+    [allLitanies]
+  );
 
   const selected = state.layers.find((l) => l.id === state.selectedId) ?? null;
 
   const onSelect = useCallback(
-    (id: string | null) => set((p) => ({ ...p, selectedId: id }), "replace"),
+    (id: string | null) => {
+      setCropMode(false);
+      set((p) => ({ ...p, selectedId: id }), "replace");
+    },
     [set]
   );
 
   const updateLayer = useCallback(
-    (id: string, fn: (l: Layer) => Layer, mode: "commit" | "replace" = "commit") =>
+    (
+      id: string,
+      fn: (l: Layer) => Layer,
+      mode: "commit" | "replace" = "commit"
+    ) =>
       set(
-        (p) => ({ ...p, layers: p.layers.map((l) => (l.id === id ? fn(l) : l)) }),
+        (p) => ({
+          ...p,
+          layers: p.layers.map((l) => (l.id === id ? fn(l) : l)),
+        }),
         mode
       ),
     [set]
   );
 
   const updateText = useCallback(
-    (id: string, patch: Partial<TextLayer>, mode: "commit" | "replace" = "commit") =>
-      updateLayer(id, (l) => (l.type === "text" ? { ...l, ...patch } : l), mode),
+    (
+      id: string,
+      patch: Partial<TextLayer>,
+      mode: "commit" | "replace" = "commit"
+    ) =>
+      updateLayer(
+        id,
+        (l) => (l.type === "text" ? { ...l, ...patch } : l),
+        mode
+      ),
     [updateLayer]
   );
 
   const updateImage = useCallback(
-    (id: string, patch: Partial<ImageLayer>, mode: "commit" | "replace" = "commit") =>
-      updateLayer(id, (l) => (l.type === "image" ? { ...l, ...patch } : l), mode),
+    (
+      id: string,
+      patch: Partial<ImageLayer>,
+      mode: "commit" | "replace" = "commit"
+    ) =>
+      updateLayer(
+        id,
+        (l) => (l.type === "image" ? { ...l, ...patch } : l),
+        mode
+      ),
     [updateLayer]
   );
 
@@ -157,7 +236,11 @@ export default function App() {
           visible: true,
         };
         getImage(src);
-        set((p) => ({ ...p, layers: [...p.layers, layer], selectedId: layer.id }));
+        set((p) => ({
+          ...p,
+          layers: [...p.layers, layer],
+          selectedId: layer.id,
+        }));
         setStatus(`Added image "${name}".`);
       } catch (e) {
         setStatus(
@@ -242,7 +325,8 @@ export default function App() {
         undo();
       } else if (
         ctrl &&
-        (e.key.toLowerCase() === "y" || (e.key.toLowerCase() === "z" && e.shiftKey))
+        (e.key.toLowerCase() === "y" ||
+          (e.key.toLowerCase() === "z" && e.shiftKey))
       ) {
         e.preventDefault();
         redo();
@@ -256,14 +340,83 @@ export default function App() {
 
   const filteredLitanies = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return LITANIES.filter(
+    return allLitanies.filter(
       (l) =>
         (category === "All" || l.category === category) &&
         (q === "" ||
           l.title.toLowerCase().includes(q) ||
           l.text.toLowerCase().includes(q))
     );
-  }, [category, search]);
+  }, [allLitanies, category, search]);
+
+  const addCustomLitany = useCallback(() => {
+    if (!draftText.trim()) {
+      setStatus("Custom litany needs some text.");
+      return;
+    }
+    const lit = makeCustomLitany({
+      title: draftTitle,
+      category: draftCategory,
+      text: draftText,
+    });
+    setCustom((c) => [...c, lit]);
+    setDraftTitle("");
+    setDraftText("");
+    setStatus(`Saved "${lit.title}" to your dictionary.`);
+  }, [draftTitle, draftCategory, draftText]);
+
+  const deleteCustomLitany = useCallback((id: string) => {
+    setCustom((c) => c.filter((l) => l.id !== id));
+  }, []);
+
+  const handleExportDictionary = useCallback(() => {
+    if (custom.length === 0) {
+      setStatus("Your dictionary is empty.");
+      return;
+    }
+    const blob = new Blob([exportCustomJson(custom)], {
+      type: "application/json",
+    });
+    downloadBlob(blob, "litany-dictionary.json");
+  }, [custom]);
+
+  const handleImportDictionary = useCallback(async (file: File) => {
+    try {
+      const raw = await file.text();
+      const imported = parseImportedJson(raw);
+      setCustom((c) => {
+        const ids = new Set(c.map((l) => l.id));
+        const merged = [...c];
+        for (const l of imported) {
+          merged.push(ids.has(l.id) ? { ...l, id: `${l.id}-imp` } : l);
+        }
+        return merged;
+      });
+      setStatus(`Imported ${imported.length} litanies into your dictionary.`);
+    } catch (e) {
+      setStatus(`Dictionary import failed: ${(e as Error).message}`);
+    }
+  }, []);
+
+  const handleSaveProject = useCallback(() => {
+    const blob = new Blob([serializeProject(state)], {
+      type: "application/json",
+    });
+    downloadBlob(blob, "litany-project.json");
+  }, [state]);
+
+  const handleLoadProject = useCallback(
+    async (file: File) => {
+      try {
+        const raw = await file.text();
+        reset(parseProject(raw));
+        setStatus(`Loaded project "${file.name}".`);
+      } catch (e) {
+        setStatus(`Project load failed: ${(e as Error).message}`);
+      }
+    },
+    [reset]
+  );
 
   async function handleFileImport(file: File) {
     try {
@@ -293,7 +446,12 @@ export default function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <img src={`${import.meta.env.BASE_URL}skull.svg`} alt="" width={26} height={26} />
+          <img
+            src={`${import.meta.env.BASE_URL}skull.svg`}
+            alt=""
+            width={26}
+            height={26}
+          />
           <span>Lithania Generator</span>
         </div>
         <div className="toolbar">
@@ -305,11 +463,27 @@ export default function App() {
           </button>
           <button
             onClick={() => {
-              if (confirm("Clear the whole canvas?")) reset(createInitialState());
+              if (confirm("Clear the whole canvas?"))
+                reset(createInitialState());
             }}
           >
             Reset
           </button>
+          <button onClick={handleSaveProject} title="Save project as .json">
+            Save
+          </button>
+          <label className="file-btn" title="Load project .json">
+            Load
+            <input
+              type="file"
+              accept="application/json,.json"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) handleLoadProject(f);
+                e.target.value = "";
+              }}
+            />
+          </label>
           <span className="spacer" />
           <select
             value={exportFormat}
@@ -340,12 +514,12 @@ export default function App() {
                   {t === "library"
                     ? "Library"
                     : t === "text"
-                    ? "Text"
-                    : t === "image"
-                    ? "Images"
-                    : t === "canvas"
-                    ? "Canvas"
-                    : "Export"}
+                      ? "Text"
+                      : t === "image"
+                        ? "Images"
+                        : t === "canvas"
+                          ? "Canvas"
+                          : "Export"}
                 </button>
               )
             )}
@@ -366,28 +540,43 @@ export default function App() {
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="All">All categories</option>
-                  {CATEGORIES.map((c) => (
+                  {allCategories.map((c) => (
                     <option key={c} value={c}>
                       {c}
                     </option>
                   ))}
                 </select>
                 <div className="litany-list">
-                  {filteredLitanies.map((l) => (
-                    <div key={l.id} className="litany-card">
-                      <div className="litany-head">
-                        <strong>{l.title}</strong>
-                        <span className="tag">{l.category}</span>
+                  {filteredLitanies.map((l) => {
+                    const isCustom = l.id.startsWith("custom-");
+                    return (
+                      <div key={l.id} className="litany-card">
+                        <div className="litany-head">
+                          <strong>{l.title}</strong>
+                          <span className="tag">
+                            {isCustom ? "★ " : ""}
+                            {l.category}
+                          </span>
+                        </div>
+                        <p className="litany-text">{l.text}</p>
+                        <div className="litany-actions">
+                          <button onClick={() => addTextLayer(l.text, l.title)}>
+                            + Add to canvas
+                          </button>
+                          {isCustom ? (
+                            <button
+                              className="danger"
+                              onClick={() => deleteCustomLitany(l.id)}
+                            >
+                              Delete
+                            </button>
+                          ) : (
+                            <span className="source">{l.source}</span>
+                          )}
+                        </div>
                       </div>
-                      <p className="litany-text">{l.text}</p>
-                      <div className="litany-actions">
-                        <button onClick={() => addTextLayer(l.text, l.title)}>
-                          + Add to canvas
-                        </button>
-                        <span className="source">{l.source}</span>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                   {filteredLitanies.length === 0 && (
                     <p className="muted">No litanies match your search.</p>
                   )}
@@ -399,7 +588,9 @@ export default function App() {
               <Section title="Custom Text & Import">
                 <button
                   className="block-btn"
-                  onClick={() => addTextLayer("ENTER YOUR LITANY", "Custom text")}
+                  onClick={() =>
+                    addTextLayer("ENTER YOUR LITANY", "Custom text")
+                  }
                 >
                   + Add empty text layer
                 </button>
@@ -415,8 +606,61 @@ export default function App() {
                   />
                 </Field>
                 <p className="muted">
-                  Select a text layer on the canvas to edit its content and style
-                  in the right panel.
+                  Select a text layer on the canvas to edit its content and
+                  style in the right panel.
+                </p>
+                <hr />
+                <h4 className="subhead">
+                  Your dictionary (saved in this browser)
+                </h4>
+                <Field label="Title">
+                  <input
+                    className="text-input"
+                    value={draftTitle}
+                    placeholder="e.g. Litany of my Chapter"
+                    onChange={(e) => setDraftTitle(e.target.value)}
+                  />
+                </Field>
+                <Field label="Category">
+                  <input
+                    className="text-input"
+                    value={draftCategory}
+                    onChange={(e) => setDraftCategory(e.target.value)}
+                  />
+                </Field>
+                <Field label="Text">
+                  <textarea
+                    className="text-area"
+                    rows={5}
+                    value={draftText}
+                    placeholder="Type your litany…"
+                    onChange={(e) => setDraftText(e.target.value)}
+                  />
+                </Field>
+                <button className="block-btn" onClick={addCustomLitany}>
+                  + Save to dictionary
+                </button>
+                <div className="row">
+                  <button onClick={handleExportDictionary}>
+                    ⬇ Download dictionary
+                  </button>
+                  <label className="file-btn">
+                    ⬆ Upload dictionary
+                    <input
+                      type="file"
+                      accept="application/json,.json"
+                      onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        if (f) handleImportDictionary(f);
+                        e.target.value = "";
+                      }}
+                    />
+                  </label>
+                </div>
+                <p className="muted">
+                  {custom.length} custom litan
+                  {custom.length === 1 ? "y" : "ies"} stored. They appear in the
+                  Library tab marked with ★.
                 </p>
               </Section>
             )}
@@ -489,7 +733,21 @@ export default function App() {
             )}
 
             {tab === "canvas" && (
-              <CanvasControls state={state} set={set} />
+              <>
+                <Section title="Layout presets">
+                  <div className="preset-grid">
+                    {PRESETS.map((pr) => (
+                      <button
+                        key={pr.id}
+                        onClick={() => set((p) => pr.apply(p))}
+                      >
+                        {pr.name}
+                      </button>
+                    ))}
+                  </div>
+                </Section>
+                <CanvasControls state={state} set={set} />
+              </>
             )}
 
             {tab === "export" && (
@@ -523,8 +781,8 @@ export default function App() {
                   Export 1024×1024 ⬇
                 </button>
                 <p className="muted">
-                  Output is always {CANVAS_SIZE}×{CANVAS_SIZE}. The BMP option is
-                  true 1-bit black &amp; white.
+                  Output is always {CANVAS_SIZE}×{CANVAS_SIZE}. The BMP option
+                  is true 1-bit black &amp; white.
                 </p>
               </Section>
             )}
@@ -532,7 +790,12 @@ export default function App() {
         </aside>
 
         <main className="canvas-area">
-          <CanvasStage state={state} setState={set} onSelect={onSelect} />
+          <CanvasStage
+            state={state}
+            setState={set}
+            onSelect={onSelect}
+            cropMode={cropMode}
+          />
           {status && <div className="status">{status}</div>}
         </main>
 
@@ -561,8 +824,22 @@ export default function App() {
                     {l.type === "text" ? "T" : "🖼"} {l.name}
                   </span>
                   <span className="layer-ord">
-                    <button onClick={(e) => { e.stopPropagation(); reorder(l.id, 1); }}>▲</button>
-                    <button onClick={(e) => { e.stopPropagation(); reorder(l.id, -1); }}>▼</button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        reorder(l.id, 1);
+                      }}
+                    >
+                      ▲
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        reorder(l.id, -1);
+                      }}
+                    >
+                      ▼
+                    </button>
                   </span>
                 </div>
               ))}
@@ -588,7 +865,11 @@ export default function App() {
               ) : (
                 <ImageProperties
                   layer={selected}
-                  update={(patch, mode) => updateImage(selected.id, patch, mode)}
+                  update={(patch, mode) =>
+                    updateImage(selected.id, patch, mode)
+                  }
+                  cropMode={cropMode}
+                  setCropMode={setCropMode}
                 />
               )}
             </Section>
@@ -670,7 +951,10 @@ function CanvasControls({
                   min={0}
                   max={bg.naturalWidth}
                   onChange={(v) =>
-                    set((p) => ({ ...p, background: { ...p.background, cropX: v } }))
+                    set((p) => ({
+                      ...p,
+                      background: { ...p.background, cropX: v },
+                    }))
                   }
                 />
               </Field>
@@ -680,7 +964,10 @@ function CanvasControls({
                   min={0}
                   max={bg.naturalHeight}
                   onChange={(v) =>
-                    set((p) => ({ ...p, background: { ...p.background, cropY: v } }))
+                    set((p) => ({
+                      ...p,
+                      background: { ...p.background, cropY: v },
+                    }))
                   }
                 />
               </Field>
@@ -690,7 +977,10 @@ function CanvasControls({
                   min={1}
                   max={bg.naturalWidth}
                   onChange={(v) =>
-                    set((p) => ({ ...p, background: { ...p.background, cropW: v } }))
+                    set((p) => ({
+                      ...p,
+                      background: { ...p.background, cropW: v },
+                    }))
                   }
                 />
               </Field>
@@ -700,7 +990,10 @@ function CanvasControls({
                   min={1}
                   max={bg.naturalHeight}
                   onChange={(v) =>
-                    set((p) => ({ ...p, background: { ...p.background, cropH: v } }))
+                    set((p) => ({
+                      ...p,
+                      background: { ...p.background, cropH: v },
+                    }))
                   }
                 />
               </Field>
@@ -746,7 +1039,9 @@ function CanvasControls({
         <Toggle
           label="Show frame"
           checked={f.enabled}
-          onChange={(v) => set((p) => ({ ...p, frame: { ...p.frame, enabled: v } }))}
+          onChange={(v) =>
+            set((p) => ({ ...p, frame: { ...p.frame, enabled: v } }))
+          }
         />
         <Toggle
           label="Export with frame"
@@ -779,7 +1074,10 @@ function CanvasControls({
             value={f.thickness}
             onStart={() => set((p) => ({ ...p }))}
             onChange={(v) =>
-              set((p) => ({ ...p, frame: { ...p.frame, thickness: v } }), "replace")
+              set(
+                (p) => ({ ...p, frame: { ...p.frame, thickness: v } }),
+                "replace"
+              )
             }
           />
         </Field>
@@ -790,7 +1088,10 @@ function CanvasControls({
             value={f.margin}
             onStart={() => set((p) => ({ ...p }))}
             onChange={(v) =>
-              set((p) => ({ ...p, frame: { ...p.frame, margin: v } }), "replace")
+              set(
+                (p) => ({ ...p, frame: { ...p.frame, margin: v } }),
+                "replace"
+              )
             }
           />
         </Field>
@@ -953,19 +1254,29 @@ function TextProperties({
 function ImageProperties({
   layer,
   update,
+  cropMode,
+  setCropMode,
 }: {
   layer: ImageLayer;
   update: (patch: Partial<ImageLayer>, mode?: "commit" | "replace") => void;
+  cropMode: boolean;
+  setCropMode: (v: boolean) => void;
 }) {
   const failed = hasFailed(layer.src);
   return (
     <>
       {failed && (
         <p className="warn">
-          This image failed to load (likely CORS-blocked). Try downloading it and
-          uploading as a file.
+          This image failed to load (likely CORS-blocked). Try downloading it
+          and uploading as a file.
         </p>
       )}
+      <button
+        className={`block-btn ${cropMode ? "active" : ""}`}
+        onClick={() => setCropMode(!cropMode)}
+      >
+        {cropMode ? "✓ Cropping — drag the box on canvas" : "✂ Crop on canvas"}
+      </button>
       <div className="grid2">
         <Field label="Width">
           <NumberInput
