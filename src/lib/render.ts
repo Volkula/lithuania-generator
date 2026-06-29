@@ -23,7 +23,15 @@ export function applyBW(ctx: CanvasRenderingContext2D, bw: BWState, box: Box) {
   const h = Math.min(ctx.canvas.height - y, Math.ceil(box.h));
   if (w <= 0 || h <= 0) return;
 
-  const data = ctx.getImageData(x, y, w, h);
+  let data: ImageData;
+  try {
+    data = ctx.getImageData(x, y, w, h);
+  } catch {
+    // Canvas is tainted by a cross-origin image without CORS headers.
+    // Skip the B/W pass so the live editor keeps working; export surfaces
+    // a clearer error to the user.
+    return;
+  }
   const px = data.data;
   // 4x4 Bayer matrix for optional ordered dithering.
   const bayer = [

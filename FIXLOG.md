@@ -19,6 +19,15 @@ A running log of things that broke the program and how they were fixed.
   and `vite.config.ts`, and changed the build script to
   `tsc --noEmit && vite build`.
 
+### 3. CORS-tainted remote image could blank the live editor
+- **Symptom:** Adding a remote image whose host sends no CORS headers taints the
+  canvas; the strict B/W pass calls `getImageData`, which then throws on every
+  repaint and breaks the preview.
+- **Cause:** `applyBW` reads pixels back from a tainted canvas.
+- **Fix:** Wrapped the `getImageData` call in `applyBW` in try/catch — on a
+  tainted canvas the B/W pass is skipped so the editor keeps working. Export
+  still reports a clear error, and the URL importer flags failed loads.
+
 ---
 
 ## Template for future entries
